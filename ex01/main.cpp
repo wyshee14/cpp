@@ -1,0 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/16 13:24:31 by wshee             #+#    #+#             */
+/*   Updated: 2025/09/16 16:20:45 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include "PhoneBook.hpp"
+
+int main()
+{
+	std::string input;
+	PhoneBook myPhoneBook;
+
+	while(1)
+	{
+		std::cout << "Enter your command: ";
+		// use getline() to get input until delimiter (\n)
+		// cin is delimited by space, any character after space is consider as new input
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			break ;
+		if (input == "ADD")
+			myPhoneBook.add_contact();
+			// std::cout << "Your input is " << input << std::endl;
+		else if (input == "SEARCH")
+			std::cout << "Your input is " << input << std::endl;
+		else if (input == "EXIT")
+			return (1);
+		else
+			std::cout << "Please enter a valid command: ADD, SEARCH, EXIT" << std::endl;
+	}
+	return (0);
+}
