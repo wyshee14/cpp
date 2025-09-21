@@ -4,7 +4,9 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+HEADER = Contact.hpp PhoneBook.hpp
+
+SRC = main.cpp Contact.cpp PhoneBook.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -13,7 +15,7 @@ all: $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

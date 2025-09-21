@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:24:31 by wshee             #+#    #+#             */
-/*   Updated: 2025/09/16 16:20:45 by wshee            ###   ########.fr       */
+/*   Updated: 2025/09/21 16:38:47 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int main()
 		if (std::cin.eof())
 			break ;
 		if (input == "ADD")
-			myPhoneBook.add_contact();
-			// std::cout << "Your input is " << input << std::endl;
+		{
+			// for (int i = 0; i< 8; i++)
+			myPhoneBook.set_contact();
+		}
 		else if (input == "SEARCH")
-			std::cout << "Your input is " << input << std::endl;
+			myPhoneBook.get_contact();
 		else if (input == "EXIT")
 			return (1);
 		else

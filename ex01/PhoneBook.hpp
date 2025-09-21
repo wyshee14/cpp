@@ -8,13 +8,15 @@ class PhoneBook
 {
 	//assessible inside of class
 	Contact contacts[8];
+	int index;
 
 	//accesss specifier: assessible outside of class
 	public:
-		//setter
-		void add_contact();
 		//getter
-		void search_contact();
+		//setter
+		void	set_contact();
+		void	get_contact();
+		PhoneBook();
 };
 
 #endif
