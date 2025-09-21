@@ -16,6 +16,7 @@ class PhoneBook
 		//setter
 		void	set_contact();
 		void	get_contact();
+		std::string prompt_input(std::string prompt);
 		PhoneBook();
 };
 
