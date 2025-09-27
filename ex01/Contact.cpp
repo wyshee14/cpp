@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:38:21 by wshee             #+#    #+#             */
-/*   Updated: 2025/09/21 16:53:33 by wshee            ###   ########.fr       */
+/*   Updated: 2025/09/27 15:03:39 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void Contact::add_contact(std::string first, std::string last, std::string nick,
 	_darkSecret = secret;
 }
 
-const std::string& Contact::search_contact() const
+void Contact::search_contact()
 {
-	return _firstName;
+	std::cout << std::setw(10) << _firstName << std::endl;
+	// std::cout << _firstName;
 }

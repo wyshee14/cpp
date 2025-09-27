@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:24:19 by wshee             #+#    #+#             */
-/*   Updated: 2025/09/21 21:55:08 by wshee            ###   ########.fr       */
+/*   Updated: 2025/09/27 15:19:47 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ std::string PhoneBook::prompt_input(std::string prompt)
 	{
 		std::cout << prompt;
 		std::getline(std::cin, key);
-		std::cout << "This field cannot be empty."<< std::endl;
+		if(std::cin.eof())
+			break ;
+		if (key.empty())
+			std::cout << "This field cannot be empty."<< std::endl;
 	}
 	return key;
 }
@@ -51,5 +54,9 @@ void	PhoneBook::get_contact()
 	if (index > 8)
 		contact_number = 8;
 	for (int j = 0; j < contact_number; j++)
-		std::cout << "firstname: " << contacts[j].search_contact() << std::endl;
+	{
+		std::cout << "firstname: ";
+		contacts[j].search_contact();
+	}
+		// std::cout << std::endl;
 }

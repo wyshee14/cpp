@@ -2,6 +2,7 @@
 # define CONTACT_HPP
 
 #include <iostream>
+# include <iomanip>
 
 class Contact
 {
@@ -16,8 +17,9 @@ class Contact
 		//setter
 		void add_contact(std::string first, std::string last, std::string nick, std::string phone, std::string secret);
 		//getter
-		const std::string& search_contact() const;
+		void search_contact();
 		Contact();
+		// const std::string& search_contact() const; (look up for reference and pointer c++)
 		// Contact(std::string str1, std::string str2, std::string str3, std::string str4, std::string str5)
 		// Contact(std::string firstName);
 };
