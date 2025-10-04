@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:24:31 by wshee             #+#    #+#             */
-/*   Updated: 2025/09/21 16:38:47 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/04 18:22:28 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@ int main()
 		// use getline() to get input until delimiter (\n)
 		// cin is delimited by space, any character after space is consider as new input
 		std::getline(std::cin, input);
+		// Handle ctrl+D
 		if (std::cin.eof())
 			break ;
 		if (input == "ADD")
 		{
-			// for (int i = 0; i< 8; i++)
-			myPhoneBook.set_contact();
+			myPhoneBook.setContact();
 		}
 		else if (input == "SEARCH")
-			myPhoneBook.get_contact();
+		{
+			myPhoneBook.getContact();
+		}
 		else if (input == "EXIT")
 			return (1);
 		else

@@ -2,6 +2,8 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <string>
+# include <stdlib.h>
 # include "Contact.hpp"
 
 class PhoneBook
@@ -9,14 +11,18 @@ class PhoneBook
 	//assessible inside of class
 	Contact contacts[8];
 	int index;
+	int total_contact;
 
 	//accesss specifier: assessible outside of class
 	public:
 		//getter
 		//setter
-		void	set_contact();
-		void	get_contact();
-		std::string prompt_input(std::string prompt);
+		void	setContact();
+		void	getContact();
+		std::string promptInput(std::string prompt);
+		int validateInput(const std::string input);
+		void listAllContact();
+		std::string formatInput(std::string input);
 		PhoneBook();
 };
 
