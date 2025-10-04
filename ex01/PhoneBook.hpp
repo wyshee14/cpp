@@ -15,14 +15,13 @@ class PhoneBook
 
 	//accesss specifier: assessible outside of class
 	public:
-		//getter
-		//setter
 		void	setContact();
 		void	getContact();
 		std::string promptInput(std::string prompt);
 		int validateInput(const std::string input);
 		void listAllContact();
 		std::string formatInput(std::string input);
+		void searchContact();
 		PhoneBook();
 };
 

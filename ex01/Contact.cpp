@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:38:21 by wshee             #+#    #+#             */
-/*   Updated: 2025/10/04 18:39:39 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/04 20:26:29 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,4 @@ void Contact::addContact(std::string first, std::string last, std::string nick, 
 	_nickname = nick;
 	_phoneNumber = phone;
 	_darkSecret = secret;
-}
-
-void Contact::displayContact()
-{
-	std::cout << "First Name: " << getFirstName() << "\n";
-	std::cout << "Last Name: " << getLastName() << "\n";
-	std::cout << "Nickname: " << getNickname() << "\n";
-	std::cout << "Phone Number: " << getPhoneNumber() << "\n";
-	std::cout << "Dark Secret: " << getDarkSecret() << "\n";
 }
