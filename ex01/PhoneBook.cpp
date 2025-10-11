@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:24:19 by wshee             #+#    #+#             */
-/*   Updated: 2025/10/04 21:46:34 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/11 17:45:58 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ void	PhoneBook::setContact()
 	index++;
 	if (total_contact < 8)
 		total_contact++;
-		// total_contact = 8;
-	std::cout << "Total contact: " << total_contact << std::endl;
-	// if(index < 8)
-	// total_contact = index;
 }
 
 void	PhoneBook::getContact()
@@ -89,10 +85,6 @@ std::string PhoneBook::formatInput(std::string input)
 
 void PhoneBook::listAllContact()
 {
-	// total_contact = index;
-	// std::cout << "total_contact: " << total_contact << std::endl;
-	// if (index > 8)
-	// 	total_contact = 8;
 	for (int j = 0; j < total_contact; j++)
 	{
 		std::cout << std::setw(10) << std:: right << j << "|";
@@ -101,7 +93,6 @@ void PhoneBook::listAllContact()
 		std::cout << std::setw(10) << std:: right << formatInput(contacts[j].getNickname()) << "|";
 		std::cout << "\n";
 	}
-	std::cout << std::endl;
 }
 
 int	PhoneBook::validateInput(const std::string input)
