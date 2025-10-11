@@ -15,12 +15,18 @@
 
 int		main( void ) {
 
+	// typedef create an alias for data types
+	// vector is sequence containers representing arrays that can change in size
 	typedef std::vector<Account::t>							  accounts_t;
 	typedef std::vector<int>								  ints_t;
+	// pair stores two values of different data types together (like a dictionary)
+	// iterator acts like a pointer to iterate through the containers
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
+	// Constructor style/Functional style initialization variable
 	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
+	// Initialize the vector by copying the array to vector [input iterator(start, end)]
 	accounts_t				accounts( amounts, amounts + amounts_size );
 	accounts_t::iterator	acc_begin	= accounts.begin();
 	accounts_t::iterator	acc_end		= accounts.end();
@@ -38,6 +44,8 @@ int		main( void ) {
 	ints_t::iterator	wit_end		= withdrawals.end();
 
 	Account::displayAccountsInfos();
+	// for loop where (first, last, function to be applied)
+	// mem_fun_ref creates a member function wrapper object (pointer to a member function)
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, dep_begin );
