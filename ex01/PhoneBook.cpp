@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:24:19 by wshee             #+#    #+#             */
-/*   Updated: 2025/10/11 17:45:58 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/12 11:41:30 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ PhoneBook::PhoneBook()
 {
 	index = 0;
 	total_contact = 0;
+	std::cout << "Phonebook has been created" << std::endl;
+}
+
+PhoneBook::~PhoneBook()
+{
+	std::cout << "Phonebook has been destroyed" << std::endl;
 }
 
 std::string PhoneBook::promptInput(std::string prompt)

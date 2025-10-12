@@ -73,6 +73,7 @@ private:
 
 	// Private Constructor
 	// Avoid any creation object outside the class
+	// this is not allow Account a() - without parameter
 	Account( void );
 
 };

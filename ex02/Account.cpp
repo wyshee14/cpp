@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 13:20:43 by wshee             #+#    #+#             */
-/*   Updated: 2025/10/11 17:38:21 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/12 11:33:45 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ Account::Account(int initial_deposit)
 	_totalAmount += initial_deposit;
 
 	_displayTimestamp();
-	std::cout << " index:" << _accountIndex << ";amount:" << initial_deposit << ";created\n";
+	std::cout << " index:" << _accountIndex << ";amount:" << checkAmount() << ";created\n";
 }
 
 Account::~Account( void )
 {
 	_displayTimestamp();
-	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";closed\n";
+	std::cout << " index:" << _accountIndex << ";amount:" << checkAmount() << ";closed\n";
 }
 
 int Account::getNbAccounts( void )
@@ -78,7 +78,7 @@ void Account::displayStatus( void ) const
 {
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex
-		<< ";amount:" << _amount
+		<< ";amount:" << checkAmount()
 		<< ";deposits:" << _nbDeposits
 		<< ";withdrawals:" << _nbWithdrawals
 		<< std::endl;
@@ -104,7 +104,7 @@ void Account::makeDeposit(int deposit)
 	std::cout << " index:" << _accountIndex
 		<< ";p_amount:" << p_amount
 		<< ";deposit:" << deposit
-		<< ";amount:" << _amount
+		<< ";amount:" << checkAmount()
 		<< ";nb_deposits:" << _nbDeposits
 		<< std::endl;
 
@@ -135,7 +135,7 @@ bool Account::makeWithdrawal( int withdrawal )
 	_totalAmount -= withdrawal;
 	_totalNbWithdrawals++;
 	std::cout << ";withdrawal:" << withdrawal;
-	std::cout << ";amount:" << _amount
+	std::cout << ";amount:" << checkAmount()
 	<< ";nb_withdrawals:" << _nbWithdrawals;
 	std::cout << std::endl;
 	return(true);

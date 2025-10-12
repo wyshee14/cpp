@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:24:31 by wshee             #+#    #+#             */
-/*   Updated: 2025/10/04 18:22:28 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/12 11:43:02 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 
 	while(1)
 	{
-		std::cout << "Enter your command: ";
+		std::cout << "Enter your command (ADD, SEARCH, EXIT): ";
 		// use getline() to get input until delimiter (\n)
 		// cin is delimited by space, any character after space is consider as new input
 		std::getline(std::cin, input);

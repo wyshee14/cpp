@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 17:50:30 by wshee             #+#    #+#             */
-/*   Updated: 2025/10/11 17:50:32 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/12 11:28:52 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ class Contact
 		const std::string& getNickname() const;
 		const std::string& getPhoneNumber() const;
 		const std::string& getDarkSecret() const;
+		// Constructor
 		Contact();
+		// Destructor
+		~Contact();
 };
 
 #endif

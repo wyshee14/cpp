@@ -6,13 +6,20 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 14:38:21 by wshee             #+#    #+#             */
-/*   Updated: 2025/10/04 20:26:29 by wshee            ###   ########.fr       */
+/*   Updated: 2025/10/12 11:39:24 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Contact.hpp"
 
-Contact::Contact() {}
+// Constructor - to instantiate an object
+Contact::Contact() {
+	// std::cout << "Contact has been created" << std::endl;
+}
+// Destructor - to delete an object, deallocate memory of the object
+Contact::~Contact(){
+	// std::cout << "Contact is destroyed" << std::endl;
+}
 
 /* ---Getter--- */
 // const std::string& is the return type
