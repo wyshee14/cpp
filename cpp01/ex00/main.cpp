@@ -14,6 +14,8 @@ int main()
     ptr->announce();
     // free memory allocation for this object
     delete ptr;
+    // set to NULL to avoid dangling pointer
+    ptr = NULL;
 
     std::cout << std::endl << GREEN << BOLD << "TEST FOR randomChump" << RESET << std::endl;
     randomChump("Random");

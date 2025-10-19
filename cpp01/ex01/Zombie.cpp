@@ -1,9 +1,8 @@
 # include "Zombie.hpp"
 
-// Parameterized constructor with name
-Zombie::Zombie(std::string name) : _name(name)
+Zombie::Zombie()
 {
-    std::cout << "Zombie Constructor Called" << std::endl;
+    std::cout << "Default constructor" << std::endl;
 }
 
 // Destructor is called with their name before they exits the function or being deleted
@@ -15,6 +14,11 @@ Zombie::~Zombie()
 const std::string& Zombie::getName( void ) const
 {
     return _name;
+}
+
+void Zombie::setName( std::string name )
+{
+    this->_name = name;
 }
 
 void Zombie::announce( void )
