@@ -1,3 +1,5 @@
 .vscode
-**/*.o
-ex01/phonebook
+*.o
+*a.out
+cpp00/ex01/phonebook
+cpp00/ex02/account
