@@ -17,15 +17,15 @@ class Zombie
     public:
         // Getter
         const std::string& getName() const;
-        // Setter
-        void setName(std::string name); 
+        // Member function
         void announce( void );
         //Constructor
         Zombie(std::string name);
         //Destructor
         ~Zombie();
 };
-    
+
+// Free function, can be called without creating an object
 Zombie* newZombie( std::string name );
 void randomChump(std::string name);
 

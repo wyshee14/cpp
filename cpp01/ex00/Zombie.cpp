@@ -6,6 +6,7 @@ Zombie::Zombie(std::string name) : _name(name)
     std::cout << "Zombie Constructor Called" << std::endl;
 }
 
+// Destructor is called with their name before they exits the function or being deleted
 Zombie::~Zombie()
 {
     std::cout << getName() << " Destructor Called" << std::endl;
