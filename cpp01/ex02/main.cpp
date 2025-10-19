@@ -11,7 +11,7 @@ int main()
     // Pointer(*) store the memory address as its value
     // & operator refers to the memory address of a variable
     std::string* stringPTR = &str;      // Pointer decalaration
-    std::cout << "Memory address held by stringPTR: " << std::endl;
+    std::cout << "Memory address held by stringPTR: " << stringPTR << std::endl;
     // Dereference: Output the value of str with pointer(*) 
     // By accessing the memory address of str
     std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
