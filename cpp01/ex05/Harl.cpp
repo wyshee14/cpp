@@ -13,16 +13,30 @@ Harl:: ~Harl()
 // only public attribute can access private attribute
 void Harl::complain( std::string level )
 {
-    if (level == "debug")
-        debug();
-    else if (level == "warning")
-        warning();
-    else if (level == "info")
-        info();
-    else if (level == "error")
-        error();
-    else
-        std::cout << "Not valid level: " << level << std::endl;
+    // Defines an alias type for member dunction pointers from class Harl
+    // which takes in void argument and return void
+    // without typedef will return error that f_ptr is not defined
+    // because it is inside the class scope
+    typedef void (Harl::*f_ptr)(void);
+    f_ptr func[4]= {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    // or write like this
+    // void (Harl::*func[4])(void)= {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    // Array of member function pointer
+    std::string harlLevels[4] = {"debug", "info", "warning", "error"};
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (harlLevels[i] == level)
+        {
+            // call the member function through pointer
+            // this-> is the object instance
+            // *funcs[i] dereferences the function pointer
+            // () calls the function
+            (this->*func[i])();
+            return ;
+        }
+    }
+    std::cout << "Invalid level" << std::endl;
 }
 
 void Harl::debug( void )
