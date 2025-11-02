@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/01 15:31:09 by wshee             #+#    #+#             */
+/*   Updated: 2025/11/01 15:31:09 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
@@ -11,18 +23,18 @@
 
 class Zombie
 {
-    private:
-        std::string _name;
+	private:
+		std::string _name;
 
-    public:
-        // Getter
-        const std::string& getName( void ) const;
-        // Member function
-        void announce( void );
-        //Constructor
-        Zombie(std::string name);
-        //Destructor
-        ~Zombie();
+	public:
+		// Getter
+		const std::string& getName( void ) const;
+		// Member function
+		void announce( void );
+		//Constructor
+		Zombie(std::string name);
+		//Destructor
+		~Zombie();
 };
 
 // Free function, can be called without creating an object

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 # include "Harl.hpp"
-# include <sstream>     //use ostringstream, write into string instead of console
 
 int main(int ac, char **av)
 {
@@ -24,24 +23,7 @@ int main(int ac, char **av)
 
 	std::string filter = av[1];
 	Harl instance;
+	instance.complain(filter);
 
-	switch(instance.GetLevel(filter))
-	{
-		case 0:
-			std::cout << "[ DEBUG ]\n";
-			instance.complain("DEBUG");
-		case 1:
-			std::cout << "[ INFO ]\n";
-			instance.complain("INFO");
-		case 2:
-			std::cout << "[ WARNING ]\n";
-			instance.complain("WARNING");
-		case 3:
-			std::cout << "[ ERROR ]\n";
-			instance.complain("ERROR");
-			break;
-		case 4:
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	}
 	return 0;
 }

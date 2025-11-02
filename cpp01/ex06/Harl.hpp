@@ -17,24 +17,16 @@
 
 class Harl
 {
-    private:
-        void debug( void );
-        void info( void );
-        void warning( void );
-        void error( void );
+	private:
+		void _debug( void );
+		void _info( void );
+		void _warning( void );
+		void _error( void );
 
-    public:
-		enum LogLevel{
-			DEBUG,
-			INFO,
-			WARNING,
-			ERROR,
-			INVALID
-		};
-		LogLevel GetLevel(std::string const& filter);
-        void complain( std::string level );
-        Harl();
-        ~Harl();
+	public:
+		void complain( std::string const& level );
+		Harl();
+		~Harl();
 };
 
 #endif
