@@ -36,6 +36,7 @@ void Harl::complain( std::string const& level )
 		}
 	}
 
+	// switch can take in char or int as parameter only
 	switch(levelNum)
 	{
 		case 0:
