@@ -2,27 +2,20 @@
 
 int main()
 {
-	float f1 = 0.3333333333333;
-	float f2 = 0.3333333333334;
+	// Default constructor
+	Fixed a;
+	// Copy constructor - b has not created yet
+	Fixed b(a);
+	Fixed c;
 
-	if (f1 == f2)
-		std::cout << "Same number " << f1 << std::setprecision(10) << std::endl;
-	else
-		std::cout << "Different number" << std::endl;
+	// assignment operator =
+	// c is an existing object
+	// copy the right value to the left value
+	c = b;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
+	return 0;
 }
-
-// int main()
-// {
-// 	Fixed f1("Mark", 42);
-// 	Fixed f2("John", 24);
-
-// 	f2 = f1;
-
-// 	std::cout << "h2: " << f2.getName() << std::endl;
-// 	std::cout << "h2: " << f2.getAge() << std::endl;
-
-// 	std::cout << "h1: " << f1.getName() << std::endl;
-// 	std::cout << "h1: " << f1.getAge() << std::endl;
-
-// 	return 0;
-// }
