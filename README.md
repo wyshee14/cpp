@@ -20,6 +20,5 @@ Introduction to C++
 - Destructor: used to delete an object when out of scope
 
 ## Ad-hoc polymorphism
-- Function overloading
-- same function name which have different parameter type
-
+- Function overloading : same function name which have different parameter type
+- Operator overloading : operator works different on how we defined it to be
