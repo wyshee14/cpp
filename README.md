@@ -19,6 +19,9 @@ Introduction to C++
 - Assignment operator: used to assign the value of one object to another existing object (handle deep copy and self assignment)
 - Destructor: used to delete an object when out of scope
 
-## Ad-hoc polymorphism
+## Polymorphism
+### Compile time polymorphism
 - Function overloading : same function name which have different parameter type
 - Operator overloading : operator works different on how we defined it to be
+### Run time polymorphism
+- Function overriding : use `virtual`

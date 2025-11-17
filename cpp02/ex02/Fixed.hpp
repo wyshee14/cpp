@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:07:10 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/16 15:30:23 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/17 20:16:41 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,31 @@ class Fixed
 		void setRawBits( float const raw );
 		float toFloat( void ) const;
 		int toInt( void ) const;
+
+		// Comparison Operator overloading
+		bool operator>( const Fixed &other) const;
+		bool operator<( const Fixed &other) const;
+		bool operator>=( const Fixed &other) const;
+		bool operator<=( const Fixed &other) const;
+		bool operator==( const Fixed &other) const;
+		bool operator!=( const Fixed &other) const;
+
+		// Arithmetic operator overloading
+		Fixed operator+( const Fixed &other );
+		Fixed operator-( const Fixed &other );
+		Fixed operator*( const Fixed &other );
+		Fixed operator/( const Fixed &other );
+
+		Fixed &operator++();
+		Fixed &operator++(int);
+		Fixed &operator--();
+		Fixed &operator--(int);
+
+		// Static member function
+		static Fixed max( const Fixed &first, const Fixed &second);
+		static Fixed max( Fixed &first, Fixed &second);
+		static Fixed min( const Fixed &first, const Fixed &second);
+		static Fixed min( Fixed &first, Fixed &second);
 	};
 
 // non member function

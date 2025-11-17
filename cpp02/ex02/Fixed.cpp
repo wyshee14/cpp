@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:25:57 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/16 15:35:57 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/17 20:16:54 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,117 @@ std::ostream &operator<<(std::ostream &out, const Fixed &other)
 {
 	out << other.toFloat();
 	return out;
+}
+
+// operator > overloading
+// always put const at the end because we dont want to modify the object
+bool Fixed::operator>( const Fixed &other ) const
+{
+	return(this->_fixedPointValue > other._fixedPointValue);
+}
+
+bool Fixed::operator<( const Fixed &other ) const
+{
+	return(this->getRawBits() < other.getRawBits());
+}
+
+bool Fixed::operator>=( const Fixed &other ) const
+{
+	return(this->getRawBits() >= other.getRawBits());
+}
+
+bool Fixed::operator<=( const Fixed &other ) const
+{
+	return(this->getRawBits() >= other.getRawBits());
+}
+
+bool Fixed::operator==( const Fixed &other ) const
+{
+	return(this->getRawBits() == other.getRawBits());
+}
+
+bool Fixed::operator!=( const Fixed &other ) const
+{
+	return(this->getRawBits() != other.getRawBits());
+}
+
+// Arithmetic operator overloading
+Fixed Fixed::operator+( const Fixed &other )
+{
+	// return a copy with new value
+	return Fixed(this->getRawBits() + other.getRawBits());
+}
+
+Fixed Fixed::operator-( const Fixed &other )
+{
+	return Fixed(this->getRawBits() - other.getRawBits());
+}
+
+Fixed Fixed::operator*( const Fixed &other )
+{
+	return Fixed(this->getRawBits() * other.getRawBits());
+}
+
+Fixed Fixed::operator/( const Fixed &other )
+{
+	return Fixed(this->getRawBits() / other.getRawBits());
+}
+
+// Pre-increment overloading
+Fixed &Fixed::operator++()
+{
+	++_fixedPointValue;
+	// return reference the object after increment
+	return	*this;
+}
+
+//Post-increment overloading
+Fixed &Fixed::operator++(int)
+{
+	//retrun should be a copy of object before increment
+	Fixed temp = *this;
+	++_fixedPointValue;
+	return	*temp;
+}
+
+// Pre-decrement overloading
+Fixed &Fixed::operator--()
+{
+	--_fixedPointValue;
+	return	*this;
+}
+
+Fixed &Fixed::operator--(int)
+{
+	_fixedPointValue++;
+	return	*this;
+}
+
+// overloading member functions
+Fixed Fixed::max( const Fixed &first, const Fixed &second)
+{
+	if (first > second)
+		return first;
+	return second;
+}
+
+Fixed Fixed::max( Fixed &first, Fixed &second )
+{
+	if (first > second)
+		return first;
+	return second;
+}
+
+Fixed Fixed::min( const Fixed &first, const Fixed &second)
+{
+	if (first < second)
+		return first;
+	return second;
+}
+
+Fixed Fixed::min( Fixed &first, Fixed &second )
+{
+	if (first < second)
+		return first;
+	return second;
 }

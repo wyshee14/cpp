@@ -36,7 +36,7 @@ Fixed &Fixed::operator=(const Fixed &other)
     // &other = address of object right
     if (this != &other)
     {
-        // copy the data 
+        // copy the data
         _fixedPointValue = other.getRawBits();
     }
     // return reference (no copy) for chaining (c = b)
@@ -62,5 +62,4 @@ int Fixed::getRawBits( void ) const
 void Fixed::setRawBits( int const raw )
 {
     _fixedPointValue = raw;
-
 }

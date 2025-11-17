@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:07:10 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/15 23:18:13 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/16 15:09:33 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed
 {
 	private:
-		// non-static member function only exist when object created	
+		// non-static member function only exist when object created
 		int _fixedPointValue;
 		// static can be access without creating an object - like global variable
 		// can directly access from the class
@@ -36,7 +36,6 @@ class Fixed
 		~Fixed();
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
-
 };
 
 # endif
