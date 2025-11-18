@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:25:57 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/17 20:16:54 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/18 20:19:10 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,25 +153,27 @@ bool Fixed::operator!=( const Fixed &other ) const
 Fixed Fixed::operator+( const Fixed &other )
 {
 	// return a copy with new value
-	return Fixed(this->getRawBits() + other.getRawBits());
+	return Fixed(this->toFloat() + other.toFloat());
 }
 
 Fixed Fixed::operator-( const Fixed &other )
 {
-	return Fixed(this->getRawBits() - other.getRawBits());
+	return Fixed(this->toFloat() - other.toFloat());
 }
 
 Fixed Fixed::operator*( const Fixed &other )
 {
-	return Fixed(this->getRawBits() * other.getRawBits());
+	return Fixed(this->toFloat() * other.toFloat());
 }
 
 Fixed Fixed::operator/( const Fixed &other )
 {
-	return Fixed(this->getRawBits() / other.getRawBits());
+	return Fixed(this->toFloat() / other.toFloat());
 }
 
-// Pre-increment overloading
+// Pre-increment overloading (++a)
+// modify the object first for both object (original and copy same)
+// Returns a reference of the same object after increment
 Fixed &Fixed::operator++()
 {
 	++_fixedPointValue;
@@ -179,13 +181,16 @@ Fixed &Fixed::operator++()
 	return	*this;
 }
 
-//Post-increment overloading
-Fixed &Fixed::operator++(int)
+// Post-increment overloading (a++)
+// Stores the original copy as temp and increment later
+// Return a copy of the before increment value
+// int in parameter is used to differentiate between pre and post increment
+Fixed Fixed::operator++(int)
 {
 	//retrun should be a copy of object before increment
 	Fixed temp = *this;
 	++_fixedPointValue;
-	return	*temp;
+	return	temp;
 }
 
 // Pre-decrement overloading
@@ -195,10 +200,11 @@ Fixed &Fixed::operator--()
 	return	*this;
 }
 
-Fixed &Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
-	_fixedPointValue++;
-	return	*this;
+	Fixed temp = *this;
+	--_fixedPointValue;
+	return	temp;
 }
 
 // overloading member functions

@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:07:10 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/17 20:16:41 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/18 16:42:46 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ class Fixed
 		Fixed operator/( const Fixed &other );
 
 		Fixed &operator++();
-		Fixed &operator++(int);
+		Fixed operator++(int);
 		Fixed &operator--();
-		Fixed &operator--(int);
+		Fixed operator--(int);
 
 		// Static member function
 		static Fixed max( const Fixed &first, const Fixed &second);
