@@ -18,9 +18,11 @@ class Point
         ~Point();
 
         //getter
-        // get_x;
-        // get_y
+        Fixed getX( void ) const;
+        Fixed getY( void ) const;
 
 };
+
+bool bsp(Point const &a, Point const &b, Point const &c, Point const &point);
 
 #endif

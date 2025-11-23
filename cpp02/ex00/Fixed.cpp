@@ -24,6 +24,7 @@ Fixed::Fixed(const Fixed &copy)
 }
 
 // assignment operator only applies to non-static member function
+// argument must be same class type
 // replaces the contents of an already existing object
 // use when we need to handle deep copy and self assignment
 // shallow copy of each member of class from one object to another
@@ -36,7 +37,7 @@ Fixed &Fixed::operator=(const Fixed &other)
     // &other = address of object right
     if (this != &other)
     {
-        // copy the data
+        // copy the data from right to left
         _fixedPointValue = other.getRawBits();
     }
     // return reference (no copy) for chaining (c = b)

@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:07:17 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/23 00:59:50 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 12:32:43 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 int main()
 {
-	Point a(0,0);
-	Point b;
-	Point c(a);
+	Point a;
+	Point b(20, 0);
+	Point c(10, 30);
+	Point p(10, 15);
+
+	if (bsp(a, b, c, p))
+		std::cout << "Inside" << std::endl;
+	else
+		std::cout << "Outside" << std::endl;
 
 	return 0;
 }
