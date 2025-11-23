@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/23 15:56:08 by wshee             #+#    #+#             */
+/*   Updated: 2025/11/23 16:08:19 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Point.hpp"
 
 // calculate the area of three points
 static float area(Point const &a, Point const &b, Point const &c)
 {
     Fixed result = (
-        (a.getX() * (b.getY() - c.getY())) 
-        + (b.getX() * (c.getY() - a.getY())) 
+        (a.getX() * (b.getY() - c.getY()))
+        + (b.getX() * (c.getY() - a.getY()))
         + (c.getX() * (a.getY() - b.getY()))
     ) / Fixed(2);
 
@@ -19,7 +31,7 @@ static float area(Point const &a, Point const &b, Point const &c)
     return abs;
 }
 
-bool bsp(Point const &a, Point const &b, Point const &c, Point const &point)
+bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
     float A = area(a, b, c);
     float A1 = area(a, b, point);
@@ -39,7 +51,7 @@ bool bsp(Point const &a, Point const &b, Point const &c, Point const &point)
 // B-------C
 
 // A = area(ABC)      = main triangle
-// A1 = area(PBC)     = bottom subtriangle  
+// A1 = area(PBC)     = bottom subtriangle
 // A2 = area(APC)     = right subtriangle
 // A3 = area(ABP)     = left subtriangle
 

@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:07:10 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/18 16:42:46 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 16:52:26 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,11 @@ class Fixed
 		Fixed operator--(int);
 
 		// Static member function
-		static Fixed max( const Fixed &first, const Fixed &second);
-		static Fixed max( Fixed &first, Fixed &second);
-		static Fixed min( const Fixed &first, const Fixed &second);
-		static Fixed min( Fixed &first, Fixed &second);
+		// Can be access outside of the class without creating an object
+		static Fixed max( const Fixed &first, const Fixed &second );
+		static Fixed max( Fixed &first, Fixed &second );
+		static Fixed min( const Fixed &first, const Fixed &second );
+		static Fixed min( Fixed &first, Fixed &second );
 	};
 
 // non member function

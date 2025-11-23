@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/23 15:56:16 by wshee             #+#    #+#             */
+/*   Updated: 2025/11/23 15:56:17 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 
 // Default value must set the value in initializer list once the cone const object constructed

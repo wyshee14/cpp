@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:25:57 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/18 20:19:10 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 16:47:58 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,10 @@ Fixed Fixed::operator*( const Fixed &other )
 
 Fixed Fixed::operator/( const Fixed &other )
 {
+	if (other.toFloat() == 0)
+	{
+		std::cerr << "Number cannot be divided by 0" << std::endl;
+	}
 	return Fixed(this->toFloat() / other.toFloat());
 }
 
@@ -176,6 +180,8 @@ Fixed Fixed::operator/( const Fixed &other )
 // Returns a reference of the same object after increment
 Fixed &Fixed::operator++()
 {
+	// normal integer fixedPointValue + int 1
+	// ϵ = 1/256 ≈ 0.00390625 (smallest increment)
 	++_fixedPointValue;
 	// return reference the object after increment
 	return	*this;

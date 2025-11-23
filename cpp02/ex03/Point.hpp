@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/23 15:56:20 by wshee             #+#    #+#             */
+/*   Updated: 2025/11/23 16:03:06 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Fixed.hpp"
 
 #ifndef POINT_H
@@ -23,6 +35,6 @@ class Point
 
 };
 
-bool bsp(Point const &a, Point const &b, Point const &c, Point const &point);
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif
