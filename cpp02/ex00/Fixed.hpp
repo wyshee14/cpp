@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:07:10 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/16 15:09:33 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 17:24:15 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Fixed
 		Fixed();
 		// Copy constructor
 		Fixed(const Fixed &copy);
-		// Copy assignment operator everload
+		// Copy assignment operator overload
 		Fixed &operator=(const Fixed &other);
 		// Destructor
 		~Fixed();

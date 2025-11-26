@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:07:10 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/18 16:42:46 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 21:33:54 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ class Fixed
 		bool operator!=( const Fixed &other) const;
 
 		// Arithmetic operator overloading
-		Fixed operator+( const Fixed &other );
-		Fixed operator-( const Fixed &other );
-		Fixed operator*( const Fixed &other );
-		Fixed operator/( const Fixed &other );
+		Fixed operator+( const Fixed &other ) const;
+		Fixed operator-( const Fixed &other ) const;
+		Fixed operator*( const Fixed &other ) const;
+		Fixed operator/( const Fixed &other ) const;
 
 		Fixed &operator++();
 		Fixed operator++(int);
@@ -64,10 +64,10 @@ class Fixed
 		Fixed operator--(int);
 
 		// Static member function
-		static Fixed max( const Fixed &first, const Fixed &second);
-		static Fixed max( Fixed &first, Fixed &second);
-		static Fixed min( const Fixed &first, const Fixed &second);
-		static Fixed min( Fixed &first, Fixed &second);
+		static Fixed const &max( const Fixed &first, const Fixed &second );
+		static Fixed const &max( Fixed &first, Fixed &second );
+		static Fixed const &min( const Fixed &first, const Fixed &second );
+		static Fixed const &min( Fixed &first, Fixed &second );
 	};
 
 // non member function

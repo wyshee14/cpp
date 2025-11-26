@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:25:57 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/23 16:47:58 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 21:38:24 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ int Fixed::toInt( void ) const
 float Fixed::toFloat( void ) const
 {
 	// changing the integer type to float
+	// bits only applicable to integer
+	// cannot perform shift bits for floating point directly
 	float scale = 1 << _fractionalBits;
 	// Typecast int to float before dividing
 	float number = static_cast<float>(_fixedPointValue) / scale;
@@ -191,6 +193,7 @@ Fixed &Fixed::operator++()
 // Stores the original copy as temp and increment later
 // Return a copy of the before increment value
 // int in parameter is used to differentiate between pre and post increment
+// will be passsed as 0 but is not accessible
 Fixed Fixed::operator++(int)
 {
 	//retrun should be a copy of object before increment
@@ -214,28 +217,28 @@ Fixed Fixed::operator--(int)
 }
 
 // overloading member functions
-Fixed Fixed::max( const Fixed &first, const Fixed &second)
+Fixed const &Fixed::max( const Fixed &first, const Fixed &second)
 {
 	if (first > second)
 		return first;
 	return second;
 }
 
-Fixed Fixed::max( Fixed &first, Fixed &second )
+Fixed const &Fixed::max( Fixed &first, Fixed &second )
 {
 	if (first > second)
 		return first;
 	return second;
 }
 
-Fixed Fixed::min( const Fixed &first, const Fixed &second)
+Fixed const &Fixed::min( const Fixed &first, const Fixed &second)
 {
 	if (first < second)
 		return first;
 	return second;
 }
 
-Fixed Fixed::min( Fixed &first, Fixed &second )
+Fixed const &Fixed::min( Fixed &first, Fixed &second )
 {
 	if (first < second)
 		return first;

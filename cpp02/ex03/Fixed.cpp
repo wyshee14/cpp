@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:25:57 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/23 12:09:21 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 21:34:29 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,23 +150,23 @@ bool Fixed::operator!=( const Fixed &other ) const
 }
 
 // Arithmetic operator overloading
-Fixed Fixed::operator+( const Fixed &other )
+Fixed Fixed::operator+( const Fixed &other ) const
 {
 	// return a copy with new value
 	return Fixed(this->toFloat() + other.toFloat());
 }
 
-Fixed Fixed::operator-( const Fixed &other )
+Fixed Fixed::operator-( const Fixed &other ) const
 {
 	return Fixed(this->toFloat() - other.toFloat());
 }
 
-Fixed Fixed::operator*( const Fixed &other )
+Fixed Fixed::operator*( const Fixed &other ) const
 {
 	return Fixed(this->toFloat() * other.toFloat());
 }
 
-Fixed Fixed::operator/( const Fixed &other )
+Fixed Fixed::operator/( const Fixed &other ) const
 {
 	return Fixed(this->toFloat() / other.toFloat());
 }
@@ -208,28 +208,28 @@ Fixed Fixed::operator--(int)
 }
 
 // overloading member functions
-Fixed Fixed::max( const Fixed &first, const Fixed &second)
+Fixed const &Fixed::max( const Fixed &first, const Fixed &second)
 {
 	if (first > second)
 		return first;
 	return second;
 }
 
-Fixed Fixed::max( Fixed &first, Fixed &second )
+Fixed const &Fixed::max( Fixed &first, Fixed &second )
 {
 	if (first > second)
 		return first;
 	return second;
 }
 
-Fixed Fixed::min( const Fixed &first, const Fixed &second)
+Fixed const &Fixed::min( const Fixed &first, const Fixed &second)
 {
 	if (first < second)
 		return first;
 	return second;
 }
 
-Fixed Fixed::min( Fixed &first, Fixed &second )
+Fixed const &Fixed::min( Fixed &first, Fixed &second )
 {
 	if (first < second)
 		return first;

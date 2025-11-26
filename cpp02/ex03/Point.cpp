@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:56:16 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/23 15:56:17 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 21:12:22 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ Point::~Point()
     std::cout << "Point Destructor called" << std::endl;
 }
 
-Fixed Point::getX( void ) const
+Fixed const &Point::getX( void ) const
 {
     return _x;
 }
 
-Fixed Point::getY( void ) const
+Fixed const &Point::getY( void ) const
 {
     return _y;
 }

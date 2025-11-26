@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:56:20 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/23 16:03:06 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 21:12:45 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Point
         ~Point();
 
         //getter
-        Fixed getX( void ) const;
-        Fixed getY( void ) const;
+        Fixed const &getX( void ) const;
+        Fixed const &getY( void ) const;
 
 };
 

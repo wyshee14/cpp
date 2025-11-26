@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:55:28 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/23 15:55:30 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 17:26:56 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main()
 	Fixed b(a);
 	Fixed c;
 
+	// a = a;
 	// assignment operator =
 	// c is an existing object
 	// copy the right value to the left value

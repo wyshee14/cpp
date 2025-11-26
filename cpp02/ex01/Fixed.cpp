@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 12:25:57 by wshee             #+#    #+#             */
-/*   Updated: 2025/11/16 15:35:57 by wshee            ###   ########.fr       */
+/*   Updated: 2025/11/23 21:31:06 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,9 @@ float Fixed::toFloat( void ) const
 // tells cout how to print this object
 std::ostream &operator<<(std::ostream &out, const Fixed &other)
 {
+	// std::fixed means the precision of decimals
+	// out << std::fixed << std::setprecision(4) << other.toFloat();
+	// by default cout prints out 6 significant digits only, including decimal place
 	out << other.toFloat();
 	return out;
 }
