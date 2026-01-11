@@ -25,3 +25,8 @@ Introduction to C++
 - Operator overloading : operator works different on how we defined it to be
 ### Run time polymorphism
 - Function overriding : use `virtual`
+
+# CPP03
+## Inheritance
+- Derived class (child) - class that inherits from another class
+- Base class (parent) - class being inherited from
