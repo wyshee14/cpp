@@ -24,9 +24,14 @@ Introduction to C++
 - Function overloading : same function name which have different parameter type
 - Operator overloading : operator works different on how we defined it to be
 ### Run time polymorphism
-- Function overriding : use `virtual`
+- Method overriding : use `virtual`
 
 # CPP03
 ## Inheritance
 - Derived class (child) - class that inherits from another class
 - Base class (parent) - class being inherited from
+### Inheritance Access
+For example, `class Car: public Vehicle`
+Public: public and protected remains the same as in base class
+Protected: protected and public attritubes becomes protected (accessible only in derived class)
+Private: protected and public attributes become private (not accessible in derived class)

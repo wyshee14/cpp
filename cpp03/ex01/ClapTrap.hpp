@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:00:57 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/11 20:40:11 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/13 00:28:34 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	public:
 		std::string		_name;
 		// Health points
 		unsigned int	_hitPoints;
@@ -26,8 +26,9 @@ class ClapTrap
 		// Reduce the target hit points when attack
 		unsigned int	_attackDamage;
 
-	public:
-		void			attack(const std::string& target);
+	// public:
+		// use virtual when overiding function in derived class during run-time(polymorphism)
+		virtual void	attack(const std::string& target);
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 		std::string		getName( void ) const;

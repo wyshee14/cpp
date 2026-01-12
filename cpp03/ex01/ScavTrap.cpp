@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 15:05:07 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/11 20:38:58 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/13 00:01:31 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,10 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
+void ScavTrap::attack(const std::string& target)
+{
+	if (isDead())
+		return ;
+	_energyPoints--;
+	std::cout << "ScavTrap " << getName() << " attacks " << target << ",causing " << getAttackDamage() << " points of damage!" << std::endl;
+}
