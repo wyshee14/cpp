@@ -6,12 +6,18 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:00:57 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/13 00:28:34 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/18 10:30:44 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_H
 # define CLAPTRAP_H
+
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
+#define BOLD "\033[1m"
 
 #include <iostream>
 
@@ -36,6 +42,9 @@ class ClapTrap
 		unsigned int	getHitPoints( void ) const;
 		unsigned int	getEnergyPoints( void ) const;
 		bool			isDead( void );
+		void 			printCurrentStatus( void );
+
+		//Constructor
 		ClapTrap(std::string name);
 		// put virtual in base class to chain the derived class when deleting the object
 		// else the derived class is not properly clean up

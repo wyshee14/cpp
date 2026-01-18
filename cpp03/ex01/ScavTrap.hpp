@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 17:16:16 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/13 00:01:39 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/18 10:04:28 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap: public ClapTrap
 		ScavTrap (std::string name);
 		~ScavTrap();
 		void attack(const std::string& target);
+		void guardGate();
 };
 
 # endif

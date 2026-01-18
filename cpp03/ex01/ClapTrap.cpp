@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:51:44 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/13 00:27:08 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/18 11:00:06 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (isDead())
 		return ;
+	// if (getEnergyPoints() > 0)
 	_energyPoints--;
 	std::cout << "ClapTrap " << getName() << " attacks " << target << ",causing " << getAttackDamage() << " points of damage!" << std::endl;
 }
@@ -47,8 +48,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (isDead())
+	if (getEnergyPoints() == 0)
+	{
+		std::cout << RED << "Clap Trap " << getName() << " cannot be repaired, no energy point left." << RESET << std::endl;
 		return ;
+	}
 	if (getHitPoints() == 10)
 		std::cout << "Hit Points is max." << std::endl;
 	if (amount > getEnergyPoints())
@@ -90,8 +94,13 @@ bool ClapTrap::isDead( void )
 {
 	if (getEnergyPoints() == 0 || getHitPoints() == 0)
 	{
-		std::cout << "Clap Trap " << getName() << " cannot attack or be repaired, no energy point and hit point left." << std::endl;
+		std::cout << RED << "Clap Trap " << getName() << " cannot attack or be repaired, no energy point and hit point left." << RESET << std::endl;
 		return true;
 	}
 	return false;
+}
+
+void ClapTrap::printCurrentStatus( void )
+{
+	std::cout << GREEN << getName() << "--> Hit points: " << getHitPoints() << ", Energy points: " << getEnergyPoints() << RESET << std::endl;
 }
