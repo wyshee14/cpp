@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 17:16:16 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/18 15:33:03 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/19 21:27:10 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 class ScavTrap: virtual public ClapTrap
 {
 	public:
+		//-----OCF-----
+		// Default constructor
+		ScavTrap();
+		// Copy Constructor
+		ScavTrap( const ScavTrap &copy);
+		// Copy Assignment operator
+		ScavTrap &operator=(const ScavTrap &other);
+		
+		//Parameterized Constructor
 		ScavTrap (const std::string& name);
 		~ScavTrap();
 		std::string	getClassName( void ) const;

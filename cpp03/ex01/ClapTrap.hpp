@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:00:57 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/18 15:18:20 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/19 21:25:00 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,15 @@ class ClapTrap
 		bool				isDead( void );
 		void 				printCurrentStatus( void );
 
-		//Constructor
+		//-----OCF-----
+		// Default constructor
+		ClapTrap();
+		// Copy Constructor
+		ClapTrap( const ClapTrap &copy);
+		// Copy Assignment operator
+		ClapTrap &operator=(const ClapTrap &other);
+		
+		// Parameterized Constructor
 		ClapTrap(const std::string& name);
 		// put virtual in base class to chain the derived class when deleting the object
 		// else the derived class is not properly clean up

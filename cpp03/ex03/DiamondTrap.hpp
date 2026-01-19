@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 15:19:25 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/19 09:27:16 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/19 22:02:58 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 // this class inherits from 2 different base class
 //         ClapTrap (virtual base - shared)
-//           /    \
+//         /        \/
 //    ScavTrap    FragTrap
 //           \    /
 //        DiamondTrap
@@ -28,9 +28,20 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		std::string _name;
 
 	public:
+		//-----OCF-----
+		// Default constructor
+		DiamondTrap();
+		// Copy Constructor
+		DiamondTrap( const DiamondTrap &copy);
+		// Copy Assignment operator
+		DiamondTrap &operator=(const DiamondTrap &other);
+
+		//Parameterized constructor
 		DiamondTrap(const std::string& name);
 		~DiamondTrap();
+		
 		std::string getClassName() const;
+		void attack(const std::string& target);
 };
 
 # endif

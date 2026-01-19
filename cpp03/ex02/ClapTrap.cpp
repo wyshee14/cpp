@@ -6,15 +6,38 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:51:44 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/18 11:52:21 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/19 21:38:35 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+	std::cout << "ClapTrap Default Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap( const ClapTrap &copy )
+{
+	std::cout << "ClapTrap Copy Constructor called" << std::endl;
+	*this = copy;
+}
+
+ClapTrap &ClapTrap::operator=( const ClapTrap &other )
+{
+	if (this != &other)
+	{
+		this->_hitPoints = other.getHitPoints();
+		this->_energyPoints = other.getEnergyPoints();
+		this->_attackDamage = other.getAttackDamage();
+		this->_name = other.getName();
+	}	
+	return (*this);
+}
+
 ClapTrap::ClapTrap(const std::string& name):_name(name), _hitPoints(100), _energyPoints(100), _attackDamage(30)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << "ClapTrap Parameterized constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
