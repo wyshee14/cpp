@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 17:16:16 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/18 11:49:31 by wshee            ###   ########.fr       */
+/*   Created: 2026/01/18 11:05:08 by wshee             #+#    #+#             */
+/*   Updated: 2026/01/18 15:32:56 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-# include "ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
-// Inheritance does not inherit the constructor and destructor of the parent class
-// Derived class must be publicly inherited so that it can be usable everywhere
-// semicolon(:) is the access specifier for inheritance
-class ScavTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 	public:
-		ScavTrap (const std::string& name);
-		~ScavTrap();
+		FragTrap(const std::string& name);
+		~FragTrap();
 		std::string	getClassName( void ) const;
-		void 		attack(const std::string& target);
-		void 		guardGate();
+		void		highFiveGuys( void );
 };
 
 # endif

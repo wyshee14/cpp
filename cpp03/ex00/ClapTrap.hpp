@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:00:57 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/03 15:18:36 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/18 11:13:21 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class ClapTrap
 		unsigned int	getHitPoints( void ) const;
 		unsigned int	getEnergyPoints( void ) const;
 		bool			isDead( void );
-		ClapTrap(std::string name);
+		ClapTrap(const std::string& name);
 		~ClapTrap();
 };
 

@@ -6,34 +6,25 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:57:05 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/18 11:30:00 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/18 15:30:11 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
-# include "ScavTrap.hpp"
+# include "DiamondTrap.hpp"
 
 int main()
 {
-	ScavTrap Scav("P1");
-	Scav.printCurrentStatus();
+	DiamondTrap Diamond("P1");
+	Diamond.printCurrentStatus();
 
-	for (int i = 0; i < 51; i++)
-	{
-		Scav.attack("enemy");
-		Scav.printCurrentStatus();
-	}
+	Diamond.attack("enemy");
+	Diamond.printCurrentStatus();
 
-	Scav.guardGate();
-	Scav.takeDamage(20);
-	Scav.printCurrentStatus();
+	Diamond.highFiveGuys();
 
-	Scav.beRepaired(20);
-	Scav.printCurrentStatus();
+	Diamond.takeDamage(20);
+	Diamond.printCurrentStatus();
 
-	// Test for pointers (runtime polymorphism)
-	// ClapTrap* ptr = new ScavTrap("Robot");
-	// ptr->attack("enemy");
-
-	// delete ptr;
+	Diamond.beRepaired(20);
+	Diamond.printCurrentStatus();
 }

@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 17:16:16 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/18 11:49:31 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/18 15:33:03 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 // Inheritance does not inherit the constructor and destructor of the parent class
 // Derived class must be publicly inherited so that it can be usable everywhere
 // semicolon(:) is the access specifier for inheritance
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 	public:
 		ScavTrap (const std::string& name);
