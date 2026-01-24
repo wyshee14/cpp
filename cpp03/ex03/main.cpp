@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:57:05 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/19 22:01:07 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/24 21:17:10 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,28 @@
 
 int main()
 {
-	DiamondTrap Diamond("P1");
-	Diamond.printCurrentStatus();
+	// Default constructor
+	DiamondTrap defaultDiamond;
+	// DiamondTrap copyDiamond(defaultDiamond);
+	DiamondTrap Diamond("D1");
+	// DiamondTrap Diamond2("D2");
+	// Diamond2 = Diamond;
 
+	std::cout << "defaultDiamnond Name: " << defaultDiamond.getName() << std::endl;
+	defaultDiamond.printCurrentStatus();
+	// copyDiamond.printCurrentStatus();
+	Diamond.printCurrentStatus();
+	// Diamond2.printCurrentStatus();
+	
+	Diamond.whoAmI();
 	Diamond.attack("enemy");
 	Diamond.printCurrentStatus();
 
-	// Diamond.highFiveGuys();
+	Diamond.takeDamage(20);
+	Diamond.printCurrentStatus();
+	
+	Diamond.beRepaired(20);
+	Diamond.printCurrentStatus();
 
-	// Diamond.takeDamage(20);
-	// Diamond.printCurrentStatus();
-
-	// Diamond.beRepaired(20);
-	// Diamond.printCurrentStatus();
+	Diamond.highFiveGuys();
 }

@@ -6,13 +6,13 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:51:44 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/19 21:38:57 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/24 15:01:26 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _name("Default constructor"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap Default Constructor called" << std::endl;
 }
@@ -35,7 +35,7 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &other )
 	return (*this);
 }
 
-ClapTrap::ClapTrap(const std::string& name):_name(name), _hitPoints(100), _energyPoints(100), _attackDamage(30)
+ClapTrap::ClapTrap(const std::string& name):_name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap Parameterized constructor called" << std::endl;
 }

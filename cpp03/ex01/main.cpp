@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:57:05 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/18 11:30:00 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/24 20:00:50 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main()
 	Scav.printCurrentStatus();
 
 	// Test for pointers (runtime polymorphism)
+	// why we have to use virtual
 	// ClapTrap* ptr = new ScavTrap("Robot");
 	// ptr->attack("enemy");
 

@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 11:16:26 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/19 22:25:06 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/24 14:40:25 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "FragTrap Default Constructor called" << std::endl;
+	this->_name = "Default FragTrap";
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 }
 
 FragTrap::FragTrap( const FragTrap &copy ) : ClapTrap(copy)
@@ -27,7 +31,10 @@ FragTrap &FragTrap::operator=( const FragTrap &other )
 {
 	if (this != &other)
 	{
-		ClapTrap::operator=(other);
+		this->_hitPoints = other.getHitPoints();
+		this->_energyPoints = other.getEnergyPoints();
+		this->_attackDamage = other.getAttackDamage();
+		this->_name = other.getName();
 	}	
 	return (*this);
 }
@@ -35,6 +42,9 @@ FragTrap &FragTrap::operator=( const FragTrap &other )
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 {
 	std::cout << "FragTrap Parameterized constructor called" << std::endl;
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 }
 
 FragTrap::~FragTrap()

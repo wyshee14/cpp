@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 15:05:07 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/19 22:21:48 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/24 14:35:35 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,26 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap Default Constructor called" << std::endl;
+	this->_name = "Default ScavTrap";
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap( const ScavTrap &copy ) : ClapTrap(copy)
 {
 	std::cout << "ScavTrap Copy Constructor called" << std::endl;
+	*this = copy;
 }
 
 ScavTrap &ScavTrap::operator=( const ScavTrap &other )
 {
-	std::cout << "ScavTrap Assignment Operator Constructor called" << std::endl;
 	if (this != &other)
 	{
-		ClapTrap::operator=(other);
+		this->_hitPoints = other.getHitPoints();
+		this->_energyPoints = other.getEnergyPoints();
+		this->_attackDamage = other.getAttackDamage();
+		this->_name = other.getName();
 	}	
 	return (*this);
 }
@@ -38,6 +45,9 @@ ScavTrap &ScavTrap::operator=( const ScavTrap &other )
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap Parameterized constructor called" << std::endl;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
 }
 
 // Destructor (Derived > Base)

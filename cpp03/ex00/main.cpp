@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:57:05 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/03 17:12:45 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/24 21:06:17 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int main()
 {
+	// only one object is created in memory
+	// constructor just initialize different parts of that single projects
 	ClapTrap clap("Object");
 
 	// Test 1: when Claptrap attack, claptrap spend energy

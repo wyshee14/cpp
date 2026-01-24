@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 15:19:25 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/19 22:02:58 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/24 21:22:39 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		DiamondTrap(const std::string& name);
 		~DiamondTrap();
 		
+		std::string getName( void ) const;
 		std::string getClassName() const;
 		void attack(const std::string& target);
+		void printCurrentStatus( void );
+		void whoAmI( void );
+
 };
 
 # endif
