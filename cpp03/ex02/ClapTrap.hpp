@@ -34,17 +34,16 @@ class ClapTrap
 		unsigned int	_attackDamage;
 
 	public:
-		// use virtual when overiding function in derived class during run-time(polymorphism)
-		virtual void		attack(const std::string& target);
-		void				takeDamage(unsigned int amount);
-		void				beRepaired(unsigned int amount);
-		virtual std::string	getClassName( void ) const;
-		std::string			getName( void ) const;
-		unsigned int		getAttackDamage( void ) const;
-		unsigned int		getHitPoints( void ) const;
-		unsigned int		getEnergyPoints( void ) const;
-		bool				isDead( void );
-		void 				printCurrentStatus( void );
+		void			attack(const std::string& target);
+		void			takeDamage(unsigned int amount);
+		void			beRepaired(unsigned int amount);
+		std::string		getClassName( void ) const;
+		std::string		getName( void ) const;
+		unsigned int	getAttackDamage( void ) const;
+		unsigned int	getHitPoints( void ) const;
+		unsigned int	getEnergyPoints( void ) const;
+		bool			isDead( void );
+		void			printCurrentStatus( void );
 
 		//-----OCF-----
 		// Default constructor
@@ -53,12 +52,10 @@ class ClapTrap
 		ClapTrap( const ClapTrap &copy);
 		// Copy Assignment operator
 		ClapTrap &operator=(const ClapTrap &other);
-		
 		// Parameterized Constructor
 		ClapTrap(const std::string& name);
-		// put virtual in base class to chain the derived class when deleting the object
-		// else the derived class is not properly clean up
-		virtual ~ClapTrap();
+		// Destructor
+		~ClapTrap();
 };
 
 #endif
