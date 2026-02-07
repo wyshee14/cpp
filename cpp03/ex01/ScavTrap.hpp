@@ -18,7 +18,7 @@
 // Inheritance does not inherit the constructor and destructor of the parent class
 // Derived class must be publicly inherited so that it can be usable everywhere
 // semicolon(:) is the access specifier for inheritance
-class ScavTrap: virtual public ClapTrap
+class ScavTrap: public ClapTrap
 {
 	public:
 		//-----OCF-----
