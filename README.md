@@ -35,3 +35,11 @@ For example, `class Car: public Vehicle`
 Public: public and protected remains the same as in base class
 Protected: protected and public attritubes becomes protected (accessible only in derived class)
 Private: protected and public attributes become private (not accessible in derived class)
+
+# CPP04
+## Runtime polymorphism
+- use `virtual` to create chaining process, let compiler know which is the base class
+- Let derived class override that member function
+## Abstract class
+- cannot create object
+- must have at least one pure virtual function(declared as =0)
