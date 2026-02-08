@@ -8,7 +8,6 @@ class Animal
 {
 	protected:
 		std::string	_type;
-		Brain* brain;
 
 	public:
 		Animal();
@@ -20,7 +19,7 @@ class Animal
         const std::string& getType() const;
         // virtual keyword : involes the override in actual dderived object in runtime
         virtual void makeSound() const;
-		const std::string* getBrain() const;
+		virtual const Brain* getBrain() const;
 };
 
 #endif

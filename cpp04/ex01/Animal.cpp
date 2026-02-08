@@ -3,7 +3,6 @@
 Animal::Animal()
 {
     std::cout << "Animal default constructor called" << std::endl;
-    brain = new Brain();
 }
 
 Animal::Animal(const Animal &copy)
@@ -37,9 +36,8 @@ void Animal::makeSound() const
     std::cout << "Animal Zooooo" << std::endl;
 }
 
-const std::string* Animal::getBrain() const
+// to let derived class override when in runtime polymorphism
+const Brain* Animal::getBrain() const
 {
-    if(!brain)
-        return NULL;
-    return brain->getIdeas();
+    return NULL;
 }

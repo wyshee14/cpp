@@ -2,6 +2,7 @@
 # define BRAIN_HPP
 
 # include <iostream>
+# include <string>
 
 class Brain
 {
@@ -13,7 +14,7 @@ class Brain
         Brain(const Brain &copy);
         Brain &operator=(const Brain &other);
         ~Brain();
-        const std::string* getIdeas() const;
+        const std::string& getIdeas(const int i) const;
         void setIdeas(int i, const std::string &idea);
 };
 

@@ -4,24 +4,35 @@
 
 int main()
 {
-	// const Animal* meta = new Animal();
-	// const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	// const WrongAnimal* wrongCat = new WrongCat();
-
-	// std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	const std::string* ideas = i->getBrain();
+	// Test constructor
+	Dog dog1;
+	Dog dog2(dog1);
 	for (int i = 0; i < 5; i++)
-		std::cout << "idea[" << i << "] = " << ideas[i] << std::endl;
-	// j->makeSound();
-	i->makeSound();
-	// meta->makeSound();
-	// wrongCat->makeSound();
+		std::cout << "idea[" << i << "] = " << dog2.getBrain()->getIdeas(i) << std::endl;
+	std::cout << "----------------------" << std::endl;
 
-	// delete meta;
-	// delete j;
+	// Subject
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	// const std::string* ideas = i->getBrain()->getIdeas();
+	for (int k = 0; k < 5; k++)
+		std::cout << "idea[" << k << "] = " << i->getBrain()->getIdeas(k) << std::endl;
+	delete j;
 	delete i;
+
+	// Test animal in array
+	std::cout << "----Test----" << std::endl;
+	Animal* meta[4];
+	for(int i = 0; i < 4; i++)
+	{
+		if (i < 2)
+			meta[i] = new Cat();
+		else
+			meta[i] = new Dog();
+		meta[i]->makeSound();
+	}
+	for(int i = 0; i < 4; i++)
+		delete meta[i];
 
 	return 0;
 }
