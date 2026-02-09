@@ -43,3 +43,6 @@ Private: protected and public attributes become private (not accessible in deriv
 ## Abstract class
 - cannot create object
 - must have at least one pure virtual function(declared as =0)
+- Pure abstract class = interface
+## Concrete class
+- can create object
