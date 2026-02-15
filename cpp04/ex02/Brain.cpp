@@ -1,6 +1,7 @@
 #include "Brain.hpp"
 
-Brain::Brain()
+// good practice to initialize arrays as empty, if not exist is fine too
+Brain::Brain() : _ideas()
 {
     std::cout << "Brain default constructor called" << std::endl;
 }

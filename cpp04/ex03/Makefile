@@ -2,11 +2,11 @@ NAME = materia
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 
-HEADER = AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp
+HEADER = AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
 
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp ICharacter.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

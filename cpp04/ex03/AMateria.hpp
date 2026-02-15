@@ -2,8 +2,11 @@
 # define AMATERIA_HPP
 
 # include <iostream>
-# include "ICharacter.hpp"
 
+// Forward decalaration
+class ICharacter;
+
+// Abstract class
 class AMateria
 {
     protected:
@@ -14,12 +17,14 @@ class AMateria
         AMateria();
         AMateria(const AMateria &copy);
         AMateria &operator=(const AMateria &other);
-        ~AMateria();
+        virtual ~AMateria();
 
         const std::string& getType() const;     // Returns materia type
-        // Pure virtual function
-        virtual AMateria* clone const = 0;
-        // virtual void use(ICharacter& target);
+        // Pure virtual function, no need to write in .cpp file
+        virtual AMateria* clone() const = 0;
+        // must be =0 to let derived class override the function
+        // else derived class can skip this implementation
+        virtual void use(ICharacter& target) = 0;
 };
 
 # endif
