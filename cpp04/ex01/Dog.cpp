@@ -25,6 +25,7 @@ Dog &Dog::operator=(const Dog &other)
 	if (this != &other)
 	{
 		this->_type = other.getType();
+		// deep copy - creates new copy of the brain
 		// getBrain returns const, compiler throwsa error
 		// solution: delete the old brain and make a new brain
 		if (this->_brain)

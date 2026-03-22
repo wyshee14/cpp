@@ -23,8 +23,10 @@ Cat &Cat::operator=(const Cat &other)
     if (this != &other)
     {
         this->_type = other.getType();
-        if (this->_brain)
+        // deletes the old brain
+		if (this->_brain)
 			delete this->_brain;
+		// implements deep copy
 		this->_brain = new Brain(*other.getBrain());
     }
     return *this;

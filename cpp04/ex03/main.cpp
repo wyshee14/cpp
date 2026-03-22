@@ -13,7 +13,7 @@ int main()
     ICharacter* me = new Character("me");
 
     AMateria* tmp;
-    tmp = src->createMateria("Ice");
+    tmp = src->createMateria("ice");
     if (!tmp)
     {
         delete me;
