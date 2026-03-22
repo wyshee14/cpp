@@ -6,11 +6,10 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 16:57:05 by wshee             #+#    #+#             */
-/*   Updated: 2026/01/24 20:00:50 by wshee            ###   ########.fr       */
+/*   Updated: 2026/01/25 12:37:00 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 
 int main()
