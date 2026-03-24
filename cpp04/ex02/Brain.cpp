@@ -32,9 +32,10 @@ Brain::~Brain()
 // get string array by index
 const std::string& Brain::getIdeas(const int i) const
 {
-    if (i >= 0 && i <= 99)
-        return _ideas[i];
-    return NULL;
+	static const std::string outOfRange = "Brain::getIdeas index out of range";
+	if (i >= 0 && i <= 99)
+		return _ideas[i];
+	return outOfRange;
 }
 
 void Brain::setIdeas(const int i, const std::string &idea)

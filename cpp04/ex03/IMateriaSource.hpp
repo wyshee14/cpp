@@ -5,7 +5,7 @@
 
 class AMateria;
 
-// Abstract class
+// Interface - contains pure virtual function
 class IMateriaSource
 {
     public:

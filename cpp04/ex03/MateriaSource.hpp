@@ -6,6 +6,7 @@
 # include "Ice.hpp"
 # include "Cure.hpp"
 
+// Concrete class
 class MateriaSource : public IMateriaSource
 {
     private:

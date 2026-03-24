@@ -6,7 +6,7 @@
 // Forward declaration - tells the compiler this class exists, avoids circular include dependencies
 class AMateria;
 
-// Abstract class 
+// Interface - contains pure virtual function
 class ICharacter
 {
     public:

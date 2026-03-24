@@ -14,26 +14,28 @@ int main()
 	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
+	// should output Base class(WrongAnimal) sound
 	wrongCat->makeSound();
 
 	delete meta;
 	delete j;
 	delete i;
+	delete wrongCat;
 
 	// Animal zootopia;
 	// Animal judy(zootopia);
 	// Animal nick;
 	// nick = zootopia;
 	// nick.makeSound();
-	
+
 	// Dog dog1;
 	// Dog dog2(dog1);
-	// std::cout << "dog1 type: " << dog1.getType() << std::endl; 
-	// std::cout << "dog2 type: " << dog2.getType() << std::endl; 
+	// std::cout << "dog1 type: " << dog1.getType() << std::endl;
+	// std::cout << "dog2 type: " << dog2.getType() << std::endl;
 	// dog1.makeSound();
 
 	// Cat cat1;
-	// std::cout << "cat1 type: " << cat1.getType() << std::endl; 
+	// std::cout << "cat1 type: " << cat1.getType() << std::endl;
 	// cat1.makeSound();
 
 	return 0;
