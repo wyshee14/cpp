@@ -1,0 +1,59 @@
+#ifndef FORM_HPP
+# define FORM_HPP
+
+# include <iostream>
+# include <exception>
+# include <string>
+# include "Bureaucrat.hpp"
+
+// Forward declaration
+class Bureaucrat;
+
+class Form {
+    private:
+        const std::string _name;
+        bool _isSigned;
+        const int _gradeToSign;
+        const int _gradeToExecute;
+
+    public:
+        // OCF
+        Form(const std::string name, const int gradeToSign, const int gradeToExecute);
+        Form(const Form &copy);
+        Form &operator=(const Form &other);
+        ~Form();
+
+        // Getter
+        const std::string& getName() const;
+        const bool& getStatus() const;
+        const int& getGradeToSign() const;
+        const int& getGradeToExecute() const;
+
+        // Exception
+		class gradeTooHighException: public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return "Error : Grade too high";
+				}
+		};
+		class gradeTooLowException: public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return "Error : Grade too low";
+				}
+		};
+
+        // Member Function
+        void checkGrade(int grade);
+        void beSigned(const Bureaucrat &bureaucrat);
+        void signForm(const Bureaucrat &brc);
+
+};
+
+std::ostream &operator<<(std::ostream &out, const Form &obj);
+
+#endif
