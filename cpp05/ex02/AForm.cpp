@@ -1,25 +1,25 @@
-# include "Form.hpp"
+# include "AForm.hpp"
 
-Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-	std::cout << "Form Parameterized Constructor called" << std::endl;
+	std::cout << "AForm Parameterized Constructor called" << std::endl;
 	checkGrade(_gradeToSign);
 	checkGrade(_gradeToExecute);
 	std::cout << "Object successfully created for " << this->_name << std::endl;
 }
 
 // name must be initialized directly as it is const (immutable) in when creating the object
-Form::Form(const Form &copy) : _name(copy._name), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
+AForm::AForm(const AForm &copy) : _name(copy._name), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
-	std::cout << "Form Copy Constructor called" << std::endl;
+	std::cout << "AForm Copy Constructor called" << std::endl;
 	checkGrade(_gradeToSign);
 	checkGrade(_gradeToExecute);
     *this = copy;
 }
 
-Form &Form::operator=(const Form &other)
+AForm &AForm::operator=(const AForm &other)
 {
-	std::cout << "Form Copy Assignment Operator called" << std::endl;
+	std::cout << "AForm Copy Assignment Operator called" << std::endl;
 	if (this != &other)
 	{
 		// cannot change the _name, _gradeToSign, _gradeToExecute after the object is constructed, must be initialized at copy constructor 
@@ -28,33 +28,33 @@ Form &Form::operator=(const Form &other)
 	return (*this);
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-	std::cout << "Form Default Destructor called" << std::endl;
+	std::cout << "AForm Default Destructor called" << std::endl;
 }
 
-const std::string& Form::getName() const
+const std::string& AForm::getName() const
 {
 	return _name;
 }
 
-const bool& Form::getStatus() const
+const bool& AForm::getStatus() const
 {
     return _isSigned;
 }
 
-const int& Form::getGradeToSign() const
+const int& AForm::getGradeToSign() const
 {
 	return _gradeToSign;
 }
 
-const int& Form::getGradeToExecute() const
+const int& AForm::getGradeToExecute() const
 {
 	return _gradeToExecute;
 }
 
 // Grade 1 - highest ; Grade 150 - lowest
-void Form::checkGrade(int grade)
+void AForm::checkGrade(int grade)
 {
     if (grade < 1)
     throw gradeTooHighException();
@@ -62,7 +62,7 @@ void Form::checkGrade(int grade)
     throw gradeTooLowException();
 }
 
-void Form::beSigned(const Bureaucrat &brc)
+void AForm::beSigned(const Bureaucrat &brc)
 {
     // check the bureaucrat grade higher/lower than grade to sign
     // throw exception if grade of bureaucrat to sign is higher/lower than _gradeToSign
@@ -75,7 +75,7 @@ void Form::beSigned(const Bureaucrat &brc)
 
 // if exception is caught here, exception wont be caught at main
 // it will find the nearest catch exception in a stack through unwinding
-void Form::signForm(const Bureaucrat &brc)
+void AForm::signForm(const Bureaucrat &brc)
 {
     try
     {
@@ -86,7 +86,7 @@ void Form::signForm(const Bureaucrat &brc)
                 std::cout << BLUE << brc.getName() << " signed " << this->getName() << RESET << std::endl;
         }
         else
-            std::cout << GREEN << "Form has been signed." << RESET << std::endl;
+            std::cout << GREEN << "AForm has been signed." << RESET << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -97,8 +97,16 @@ void Form::signForm(const Bureaucrat &brc)
 // insertion overloading
 // return stream by reference to allow chaining of multiple output
 // pass both stream and object by reference
-std::ostream &operator<<(std::ostream &out, const Form  &obj)
+std::ostream &operator<<(std::ostream &out, const AForm  &obj)
 {
-	out << "Form Name: " << obj.getName() << ", Status: " << obj.getStatus() << ", Grade To Sign: " << obj.getGradeToSign() << ", Grade To Execute: " << obj.getGradeToExecute() << ".";
+	out << "AForm Name: " << obj.getName() << ", Status: " << obj.getStatus() << ", Grade To Sign: " << obj.getGradeToSign() << ", Grade To Execute: " << obj.getGradeToExecute() << ".";
 	return out;
 }
+
+ void AForm::checkExecution(Bureaucrat const& executor) const
+ {
+    if (this->getStatus() == false)
+        throw formNotSignedException();
+    if (executor.getGrade() > this->getGradeToExecute())
+        throw gradeTooLowException();
+ }

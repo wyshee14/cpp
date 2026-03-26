@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <exception>
@@ -9,7 +9,8 @@
 // Forward declaration
 class Bureaucrat;
 
-class Form {
+// Abstract class
+class AForm {
     private:
         const std::string _name;
         bool _isSigned;
@@ -18,10 +19,10 @@ class Form {
 
     public:
         // OCF
-        Form(const std::string name, const int gradeToSign, const int gradeToExecute);
-        Form(const Form &copy);
-        Form &operator=(const Form &other);
-        ~Form();
+        AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
+        AForm(const AForm &copy);
+        AForm &operator=(const AForm &other);
+        ~AForm();
 
         // Getter
         const std::string& getName() const;
@@ -46,14 +47,25 @@ class Form {
 					return "Form Error : Grade too low";
 				}
 		};
+        class formNotSignedException: public std::exception
+		{
+			public:
+				const char* what() const throw()
+				{
+					return "Form Error : Form not signed. Please get signature to proceed with execution.";
+				}
+		};
 
         // Member Function
         void checkGrade(int grade);
         void beSigned(const Bureaucrat &bureaucrat);
         void signForm(const Bureaucrat &brc);
 
+        // Pure virtual function
+        virtual void execute(Bureaucrat const& executor) const = 0;
+        void checkExecution(Bureaucrat const& executor) const;
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &obj);
+std::ostream &operator<<(std::ostream &out, const AForm &obj);
 
 #endif
