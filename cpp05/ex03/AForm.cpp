@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 13:56:48 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:56:50 by wshee            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 # include "AForm.hpp"
 
 AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
@@ -34,7 +22,7 @@ AForm &AForm::operator=(const AForm &other)
 	std::cout << "AForm Copy Assignment Operator called" << std::endl;
 	if (this != &other)
 	{
-		// cannot change the _name, _gradeToSign, _gradeToExecute after the object is constructed, must be initialized at copy constructor
+		// cannot change the _name, _gradeToSign, _gradeToExecute after the object is constructed, must be initialized at copy constructor 
         this->_isSigned = other.getStatus();
     }
 	return (*this);
@@ -102,7 +90,7 @@ void AForm::signForm(const Bureaucrat &brc)
     }
     catch(const std::exception& e)
     {
-        std::cout << BLUE << brc.getName() << " couldn't sign " << this->getName() << " because " << e.what() << RESET << '\n';
+        std::cout << BLUE << brc.getName() << " couldn't sign " << this->getName() << " because " << e.what() << RESET << '\n';    
     }
 }
 

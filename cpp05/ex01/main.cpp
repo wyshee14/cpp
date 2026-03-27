@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 13:56:32 by wshee             #+#    #+#             */
+/*   Updated: 2026/03/27 13:56:33 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
 
@@ -32,7 +44,7 @@ int main()
 	{
 		std::cerr << RED << e.what() << RESET << std::endl;
 	}
-	
+
 	std::cout << GREEN << "-----TEST FOR GRADE TO SIGN SUCCESS-----" << RESET << std::endl;
 	try
 	{

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/27 13:56:26 by wshee             #+#    #+#             */
+/*   Updated: 2026/03/27 13:56:28 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Form.hpp"
 
 Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
@@ -22,7 +34,7 @@ Form &Form::operator=(const Form &other)
 	std::cout << "Form Copy Assignment Operator called" << std::endl;
 	if (this != &other)
 	{
-		// cannot change the _name, _gradeToSign, _gradeToExecute after the object is constructed, must be initialized at copy constructor 
+		// cannot change the _name, _gradeToSign, _gradeToExecute after the object is constructed, must be initialized at copy constructor
         this->_isSigned = other.getStatus();
     }
 	return (*this);
@@ -90,7 +102,7 @@ void Form::signForm(const Bureaucrat &brc)
     }
     catch(const std::exception& e)
     {
-        std::cout << BLUE << brc.getName() << " couldn't sign " << this->getName() << " because " << e.what() << RESET << '\n';    
+        std::cout << BLUE << brc.getName() << " couldn't sign " << this->getName() << " because " << e.what() << RESET << '\n';
     }
 }
 

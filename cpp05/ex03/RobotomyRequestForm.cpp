@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 13:56:59 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:57:01 by wshee            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 # include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
@@ -37,7 +25,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 const std::string& RobotomyRequestForm::getTarget() const
 {
     return _target;
-}
+} 
 
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {

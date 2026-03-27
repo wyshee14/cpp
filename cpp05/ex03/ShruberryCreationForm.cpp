@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ShruberryCreationForm.cpp                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 13:57:02 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:57:03 by wshee            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 # include "ShruberryCreationForm.hpp"
 
 ShruberryCreationForm::ShruberryCreationForm(const std::string target) : AForm("ShruberryCreationForm", 145, 137), _target(target)
@@ -37,7 +25,7 @@ ShruberryCreationForm::~ShruberryCreationForm()
 const std::string& ShruberryCreationForm::getTarget() const
 {
     return _target;
-}
+} 
 
 void ShruberryCreationForm::execute(Bureaucrat const& executor) const
 {
