@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 15:20:31 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/26 22:31:49 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 16:31:05 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ class Bureaucrat{
 		void incrementGrade();
 		void decrementGrade();
 		void checkGrade(int grade);
+		void signForm(AForm &form) const;
 		void executeForm(AForm const& form) const;
 };
 

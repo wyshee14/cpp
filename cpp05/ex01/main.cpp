@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:56:32 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:56:33 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 16:09:36 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,16 @@ int main()
 		std::cout << b1 << std::endl;
 		Form d("TAX FORM D", 10, 10);
 		std::cout << d << std::endl;
-		d.signForm(b1);
+		b1.signForm(d);
 		std::cout << d << std::endl;
 		// Test same rank
 		Bureaucrat b3("B3", 150);
 		std::cout << b3 << std::endl;
 		Form f("TAX FORM F", 150, 10);
 		std::cout << f << std::endl;
-		f.signForm(b3);
+		b3.signForm(f);
 		std::cout << f << std::endl;
-		f.signForm(b1);
+		b1.signForm(f);
 		std::cout << f << std::endl;
 	}
 	catch(const std::exception& e)
@@ -78,7 +78,7 @@ int main()
 		std::cout << b2 << std::endl;
 		Form e("TAX FORM E", 10, 10);
 		std::cout << e << std::endl;
-		e.signForm(b2);
+		b2.signForm(e);
 	}
 	catch(const std::exception& e)
 	{

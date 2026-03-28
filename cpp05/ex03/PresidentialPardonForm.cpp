@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/28 16:32:59 by wshee             #+#    #+#             */
+/*   Updated: 2026/03/28 16:33:01 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
@@ -25,7 +37,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 const std::string& PresidentialPardonForm::getTarget() const
 {
     return _target;
-} 
+}
 
 void PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {

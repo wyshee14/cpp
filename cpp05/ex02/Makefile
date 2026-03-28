@@ -23,6 +23,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	# remove files ending with shruberry
+	rm -f -- *_shrubbery
 
 re: fclean all
 

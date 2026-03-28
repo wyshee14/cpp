@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:56:38 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:56:40 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 16:26:52 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ class Form {
         // Member Function
         void checkGrade(int grade);
         void beSigned(const Bureaucrat &bureaucrat);
-        void signForm(const Bureaucrat &brc);
-
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &obj);

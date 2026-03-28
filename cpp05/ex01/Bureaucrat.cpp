@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 15:41:45 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/26 16:32:32 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 16:24:14 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 	std::cout << "Bureaucrat Copy Assignment Operator called" << std::endl;
 	if (this != &other)
 	{
-		// cannot change the _name after the object is constructed, must be initialized at copy constructor 
+		// cannot change the _name after the object is constructed, must be initialized at copy constructor
 		// this->_name = other.getName();
 		this->_grade = other.getGrade();
 	}
@@ -84,4 +84,26 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
 {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
 	return out;
+}
+
+// if exception is caught here, exception wont be caught at main
+// it will find the nearest catch exception in a stack through unwinding
+// use const to avoid copying another object
+void Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		if (form.getStatus() == false)
+		{
+			form.beSigned(*this);
+			if (form.getStatus())
+				std::cout << BLUE << this->getName() << " signed " << form.getName() << RESET << std::endl;
+		}
+		else
+			std::cout << GREEN << "Form has been signed." << RESET << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << BLUE << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << RESET << '\n';
+	}
 }

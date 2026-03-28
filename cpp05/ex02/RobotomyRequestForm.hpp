@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:57:17 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:57:19 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 17:30:10 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# include <cstdlib>
 
 // Concrete class
 class RobotomyRequestForm : public AForm {

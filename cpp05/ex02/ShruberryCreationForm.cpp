@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:57:02 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:57:03 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 17:27:25 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,29 @@ ShruberryCreationForm::~ShruberryCreationForm()
 
 const std::string& ShruberryCreationForm::getTarget() const
 {
-    return _target;
+	return _target;
 }
 
 void ShruberryCreationForm::execute(Bureaucrat const& executor) const
 {
-    this->checkExecution(executor);
-    std::cout << MAGENTA << "Creates a file " << this->getTarget() << "_shrubbery in the working directory and writes ASCII trees inside it." << RESET << std::endl;
+	this->checkExecution(executor);
+	std::cout << "Executing Shruberry Creation" << std::endl;
+	// std::cout << MAGENTA << "Creates a file " << this->getTarget() << "_shrubbery in the working directory and writes ASCII trees inside it." << RESET << std::endl;
+	std::string fileName = getTarget() + "_shrubbery";
+	// converts into a const char (c string)
+	std::ofstream newFile(fileName.c_str());
+	if (!newFile)
+	{
+		std::cerr << RED << "Error: cannot open file" << fileName << RESET << std::endl;
+	}
+	newFile << "\n";
+	newFile << "    *\n";
+	newFile << "   /.\\\n";
+	newFile << "  /o..\\\n";
+	newFile << "  /..o\\\n";
+	newFile << " /.o..o\\\n";
+	newFile << " /...o.\\\n";
+	newFile << "/..o....\\\n";
+	newFile << "^^^[_]^^^\n";
+	newFile.close();
 }
-
-

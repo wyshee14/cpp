@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShruberryCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/28 16:33:33 by wshee             #+#    #+#             */
+/*   Updated: 2026/03/28 17:53:08 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHRUBERRYCRETIONFORM_HPP
 # define SHRUBERRYCRETIONFORM_HPP
 
 # include "AForm.hpp"
+# include <fstream>
 
 // Concrete class
 class ShruberryCreationForm : public AForm {

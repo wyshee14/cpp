@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:57:05 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:57:06 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 16:27:04 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class AForm {
         AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
         AForm(const AForm &copy);
         AForm &operator=(const AForm &other);
-        ~AForm();
+        virtual ~AForm();
 
         // Getter
         const std::string& getName() const;
@@ -71,7 +71,6 @@ class AForm {
         // Member Function
         void checkGrade(int grade);
         void beSigned(const Bureaucrat &bureaucrat);
-        void signForm(const Bureaucrat &brc);
 
         // Pure virtual function
         virtual void execute(Bureaucrat const& executor) const = 0;

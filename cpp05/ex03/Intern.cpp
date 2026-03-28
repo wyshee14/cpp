@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:56:01 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 14:04:14 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 15:42:47 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,28 @@ Intern::~Intern()
 	std::cout << "Intern Default Destructor called" << std::endl;
 }
 
-// AForm* makeForm(const std::string formName, const std::string target)
-// {
-// 	std::cout << "Intern creates " << formName << std::endl;
-// 	return ();
-// }
+AForm* Intern::makeForm(const std::string formName, const std::string target)
+{
+	std::string form[3] = {"ShruberryCreationForm", "RobotomyReuqestForm", "PresidentialPardonForm"};
+	int formNumber = -1;
+	for (int i = 0; i < 3; i++)
+	{
+		if (formName == form[i])
+		{
+			std::cout << GREEN << "Intern creates " << formName << RESET << std::endl;
+			formNumber = i;
+		}
+	}
+	switch(formNumber)
+	{
+		case 0:
+			return (new ShruberryCreationForm(target));
+		case 1:
+			return (new RobotomyRequestForm(target));
+		case 2:
+			return (new PresidentialPardonForm(target));
+		default:
+			std::cout << RED << "Form Name provided does not exist." << RESET << std::endl;
+	}
+	return (NULL);
+}

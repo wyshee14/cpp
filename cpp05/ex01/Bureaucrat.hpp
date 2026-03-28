@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 15:20:31 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/26 16:09:53 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 16:07:41 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include "Form.hpp"
 
 #define RESET "\033[0m"
 #define RED "\033[31m"
@@ -23,6 +24,9 @@
 #define MAGENTA "\033[95m"
 #define BLUE "\033[34m"
 #define BOLD "\033[1m"
+
+// Forward Declaration
+class Form;
 
 class Bureaucrat{
 	private:
@@ -64,6 +68,7 @@ class Bureaucrat{
 		void incrementGrade();
 		void decrementGrade();
 		void checkGrade(int grade);
+		void signForm(Form &form) const;
 };
 
 // insertion operator - must be non member function

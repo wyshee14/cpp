@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/28 16:32:42 by wshee             #+#    #+#             */
+/*   Updated: 2026/03/28 16:32:45 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "AForm.hpp"
 
 AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
@@ -22,7 +34,7 @@ AForm &AForm::operator=(const AForm &other)
 	std::cout << "AForm Copy Assignment Operator called" << std::endl;
 	if (this != &other)
 	{
-		// cannot change the _name, _gradeToSign, _gradeToExecute after the object is constructed, must be initialized at copy constructor 
+		// cannot change the _name, _gradeToSign, _gradeToExecute after the object is constructed, must be initialized at copy constructor
         this->_isSigned = other.getStatus();
     }
 	return (*this);
@@ -71,27 +83,6 @@ void AForm::beSigned(const Bureaucrat &brc)
     if (brc.getGrade() > this->getGradeToSign())
         throw gradeTooLowException();
     _isSigned = true;
-}
-
-// if exception is caught here, exception wont be caught at main
-// it will find the nearest catch exception in a stack through unwinding
-void AForm::signForm(const Bureaucrat &brc)
-{
-    try
-    {
-        if (this->getStatus() == false)
-        {
-            beSigned(brc);
-            if (this->getStatus())
-                std::cout << BLUE << brc.getName() << " signed " << this->getName() << RESET << std::endl;
-        }
-        else
-            std::cout << GREEN << "AForm has been signed." << RESET << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << BLUE << brc.getName() << " couldn't sign " << this->getName() << " because " << e.what() << RESET << '\n';    
-    }
 }
 
 // insertion overloading

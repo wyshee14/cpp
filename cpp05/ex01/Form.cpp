@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:56:26 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/27 13:56:28 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 16:13:20 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,27 +83,6 @@ void Form::beSigned(const Bureaucrat &brc)
     if (brc.getGrade() > this->getGradeToSign())
         throw gradeTooLowException();
     _isSigned = true;
-}
-
-// if exception is caught here, exception wont be caught at main
-// it will find the nearest catch exception in a stack through unwinding
-void Form::signForm(const Bureaucrat &brc)
-{
-    try
-    {
-        if (this->getStatus() == false)
-        {
-            beSigned(brc);
-            if (this->getStatus())
-                std::cout << BLUE << brc.getName() << " signed " << this->getName() << RESET << std::endl;
-        }
-        else
-            std::cout << GREEN << "Form has been signed." << RESET << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << BLUE << brc.getName() << " couldn't sign " << this->getName() << " because " << e.what() << RESET << '\n';
-    }
 }
 
 // insertion overloading

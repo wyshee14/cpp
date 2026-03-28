@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/28 16:33:14 by wshee             #+#    #+#             */
+/*   Updated: 2026/03/28 16:33:15 by wshee            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
@@ -22,7 +34,7 @@ class AForm {
         AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
         AForm(const AForm &copy);
         AForm &operator=(const AForm &other);
-        ~AForm();
+        virtual ~AForm();
 
         // Getter
         const std::string& getName() const;
@@ -59,7 +71,6 @@ class AForm {
         // Member Function
         void checkGrade(int grade);
         void beSigned(const Bureaucrat &bureaucrat);
-        void signForm(const Bureaucrat &brc);
 
         // Pure virtual function
         virtual void execute(Bureaucrat const& executor) const = 0;
