@@ -6,13 +6,13 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:56:53 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/28 17:50:57 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 19:25:22 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
-# include "ShruberryCreationForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
 # include <ctime>
@@ -22,9 +22,9 @@ int main()
 	std::cout << GREEN << "-----TEST FOR OCF-----" << RESET << std::endl;
 	try
 	{
-		ShruberryCreationForm a("home");
+		ShrubberyCreationForm a("home");
 		std::cout << a << std::endl;
-		ShruberryCreationForm copyA(a);
+		ShrubberyCreationForm copyA(a);
 		std::cout << copyA << std::endl;
 		a = copyA;
 		std::cout << a << std::endl;
@@ -37,7 +37,7 @@ int main()
 	std::cout << GREEN << "-----TEST FOR SUCCESS EXECUTION-----" << RESET << std::endl;
 	try
 	{
-		ShruberryCreationForm a("home");
+		ShrubberyCreationForm a("home");
 		std::cout << a << std::endl;
 		Bureaucrat b1("B1", 137);
 		std::cout << b1 << std::endl;
@@ -69,7 +69,7 @@ int main()
 	std::cout << GREEN << "-----TEST FOR FAIL EXECUTION (GRADE TOO LOW)-----" << RESET << std::endl;
 	try
 	{
-		ShruberryCreationForm a("home");
+		ShrubberyCreationForm a("home");
 		std::cout << a << std::endl;
 		Bureaucrat b1("B1", 100);
 		std::cout << b1 << std::endl;
@@ -105,7 +105,7 @@ int main()
 	std::cout << GREEN << "-----TEST FOR FAIL EXECUTION (FORM NOT SIGNED)-----" << RESET << std::endl;
 	try
 	{
-		ShruberryCreationForm a("home");
+		ShrubberyCreationForm a("home");
 		std::cout << a << std::endl;
 		Bureaucrat b1("B1", 100);
 		std::cout << b1 << std::endl;

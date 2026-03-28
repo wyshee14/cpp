@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShruberryCreationForm.hpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 13:57:21 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/28 17:05:12 by wshee            ###   ########.fr       */
+/*   Created: 2026/03/28 16:33:33 by wshee             #+#    #+#             */
+/*   Updated: 2026/03/28 19:25:48 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBERRYCRETIONFORM_HPP
-# define SHRUBERRYCRETIONFORM_HPP
+#ifndef SHRUBBERYCRETIONFORM_HPP
+# define SHRUBBERYCRETIONFORM_HPP
 
 # include "AForm.hpp"
 # include <fstream>
 
 // Concrete class
-class ShruberryCreationForm : public AForm {
+class ShrubberyCreationForm : public AForm {
     private:
         const std::string _target;
 
     public:
         // OCF
-        ShruberryCreationForm(const std::string target);
-        ShruberryCreationForm(const ShruberryCreationForm &copy);
-        ShruberryCreationForm &operator=(const ShruberryCreationForm &other);
-        ~ShruberryCreationForm();
+        ShrubberyCreationForm(const std::string target);
+        ShrubberyCreationForm(const ShrubberyCreationForm &copy);
+        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
+        ~ShrubberyCreationForm();
 
         // Getter
         const std::string& getTarget() const;

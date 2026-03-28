@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:56:01 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/28 15:42:47 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 19:25:22 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Intern::~Intern()
 
 AForm* Intern::makeForm(const std::string formName, const std::string target)
 {
-	std::string form[3] = {"ShruberryCreationForm", "RobotomyReuqestForm", "PresidentialPardonForm"};
+	std::string form[3] = {"ShrubberyCreationForm", "RobotomyReuqestForm", "PresidentialPardonForm"};
 	int formNumber = -1;
 	for (int i = 0; i < 3; i++)
 	{
@@ -49,7 +49,7 @@ AForm* Intern::makeForm(const std::string formName, const std::string target)
 	switch(formNumber)
 	{
 		case 0:
-			return (new ShruberryCreationForm(target));
+			return (new ShrubberyCreationForm(target));
 		case 1:
 			return (new RobotomyRequestForm(target));
 		case 2:

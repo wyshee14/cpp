@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShruberryCreationForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:57:02 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/28 17:27:25 by wshee            ###   ########.fr       */
+/*   Updated: 2026/03/28 19:25:22 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ShruberryCreationForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
-ShruberryCreationForm::ShruberryCreationForm(const std::string target) : AForm("ShruberryCreationForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
-	std::cout << "ShruberryCreationForm Parameterized Constructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm Parameterized Constructor called" << std::endl;
 }
 
 // name must be initialized directly as it is const (immutable) in when creating the object
-ShruberryCreationForm::ShruberryCreationForm(const ShruberryCreationForm &copy) : AForm(copy), _target(copy._target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy), _target(copy._target)
 {
-	std::cout << "ShruberryCreationForm Copy Constructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm Copy Constructor called" << std::endl;
 }
 
-ShruberryCreationForm &ShruberryCreationForm::operator=(const ShruberryCreationForm &)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &)
 {
-	std::cout << "ShruberryCreationForm Copy Assignment Operator called" << std::endl;
+	std::cout << "ShrubberyCreationForm Copy Assignment Operator called" << std::endl;
 	return (*this);
 }
 
-ShruberryCreationForm::~ShruberryCreationForm()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShruberryCreationForm Default Destructor called" << std::endl;
+	std::cout << "ShrubberyCreationForm Default Destructor called" << std::endl;
 }
 
-const std::string& ShruberryCreationForm::getTarget() const
+const std::string& ShrubberyCreationForm::getTarget() const
 {
 	return _target;
 }
 
-void ShruberryCreationForm::execute(Bureaucrat const& executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	this->checkExecution(executor);
-	std::cout << "Executing Shruberry Creation" << std::endl;
+	std::cout << "Executing Shrubbery Creation" << std::endl;
 	// std::cout << MAGENTA << "Creates a file " << this->getTarget() << "_shrubbery in the working directory and writes ASCII trees inside it." << RESET << std::endl;
 	std::string fileName = getTarget() + "_shrubbery";
 	// converts into a const char (c string)
