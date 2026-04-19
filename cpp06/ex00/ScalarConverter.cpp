@@ -22,17 +22,68 @@ ScalarConverter::~ScalarConverter()
 	std::cout << "ScalarConverter Destructor called" << std::endl;
 }
 
-static int convertInt(const char *arg)
+// static int convertToInt(const char *arg)
+// {
+// 	// return (std::atoi(arg));
+// 	return 1;
+// }
+
+enum type {
+	INT,
+	CHAR,
+	FLOAT,
+	DOUBLE,
+};
+
+bool isInt(const char *arg)
 {
-	return 1;
+	// handle int min and max
+	for (size_t i = 0; i < strlen(arg); i++)
+	{
+		if (arg[0] == '-')
+			i++;
+		if (!std::isdigit(arg[i]))
+			return false;
+	}
+	std::cout << "This is a int" << std::endl;
+	return true;
+}
+
+bool isChar(const char *arg)
+{
+	for (size_t i = 0; i < strlen(arg); i++)
+	{
+		// printable har character
+		if (arg[i] < 32 || arg[i] >= 127)
+			return false;
+	}
+	std::cout << "This is a char" << std::endl;
+	return true;
+}
+
+// using IEEE 754 single-precision (4 bytes) - precision 7 significant digits
+bool isFloat(const char *arg)
+{
+	std::string str = arg;
+	std::size_t found = str.find(".");
+	if (found != std::string::npos)
+		std::cout << ".is found at : " << found << std::endl;
+	if (str.size() > 8)
+		return false;
+	if (arg[str.size() - 1] != 'f')
+		return false;
+	std::cout << "This is a float" << std::endl;
+	return true;
 }
 
 void ScalarConverter::convert(const char *arg)
 {
-	// return (std::atoi(arg));
-	// first detect the type 
+	int type;
+	// first detect the type - whether is int, char, float, double
+	if (isInt(arg))
+		type = 0;
 	// check overflow - display error message
 	// convert to the type
 	// convert to three other data type
-	std::cout  << "char: " << convertInt(arg) << std::endl;
+	// std::cout  << "char: " << convertToInt(arg) << std::endl;
 }

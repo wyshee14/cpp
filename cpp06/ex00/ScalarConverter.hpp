@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:19:50 by wshee             #+#    #+#             */
-/*   Updated: 2026/03/30 17:23:00 by wshee            ###   ########.fr       */
+/*   Updated: 2026/04/19 17:28:00 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 # include <stdlib.h>
+# include <cctype>
+# include <cstring>
 
 class ScalarConverter {
 	private:

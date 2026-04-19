@@ -46,3 +46,14 @@ Private: protected and public attributes become private (not accessible in deriv
 - Pure abstract class = interface
 ## Concrete class
 - can create object
+
+# CPP05
+## Exception
+- try---catch
+
+# CPP06
+## Implicit Type Conversion
+- conversion of one data type to another type by compiler automatically
+## Explicit Type conversion
+- type casting is forced to convert the data type manually in code
+- Static cast : compile time cast
