@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:19:50 by wshee             #+#    #+#             */
-/*   Updated: 2026/04/19 17:28:00 by wshee            ###   ########.fr       */
+/*   Updated: 2026/04/28 21:25:02 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <cctype>
 # include <cstring>
+# include <climits>		// Handle int min and max
+# include <stdlib.h>	// atoi library
 
 class ScalarConverter {
 	private:

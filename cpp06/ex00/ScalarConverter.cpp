@@ -38,12 +38,19 @@ enum type {
 bool isInt(const char *arg)
 {
 	// handle int min and max
+	if (arg > INT_MAX || arg < INT_MIN)
+	{
+		std::cout << "Integer overflow" << std::endl;
+		return false;
+	}
 	for (size_t i = 0; i < strlen(arg); i++)
 	{
 		if (arg[0] == '-')
 			i++;
 		if (!std::isdigit(arg[i]))
 			return false;
+		int num = std::atoi(arg);
+		std::cout << "num: " << num << std::endl;
 	}
 	std::cout << "This is a int" << std::endl;
 	return true;
