@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:19:50 by wshee             #+#    #+#             */
-/*   Updated: 2026/04/28 21:25:02 by wshee            ###   ########.fr       */
+/*   Updated: 2026/05/22 00:13:48 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <string>
 # include <stdlib.h>
-# include <cctype>
+# include <cctype>		// Handle individual character (isdigit(), isprint())
 # include <cstring>
 # include <climits>		// Handle int min and max
 # include <stdlib.h>	// atoi library

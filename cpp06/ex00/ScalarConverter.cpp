@@ -22,22 +22,28 @@ ScalarConverter::~ScalarConverter()
 	std::cout << "ScalarConverter Destructor called" << std::endl;
 }
 
-// static int convertToInt(const char *arg)
-// {
-// 	// return (std::atoi(arg));
-// 	return 1;
-// }
-
 enum type {
-	INT,
 	CHAR,
+	INT,
 	FLOAT,
 	DOUBLE,
+	PSEUDO,
+	INVALID
 };
 
-bool isInt(const char *arg)
+bool isChar(std::string input)
 {
-	// handle int min and max
+	if (input.size() != 1)
+		return false;
+	// printable char character and not a digit
+	if (!isprint(input[0]) || isdigit(input[0]))
+		return false;
+	return true;
+}
+
+bool isInt(std::string input)
+{
+	// handle int min and max - convert string to number first
 	if (arg > INT_MAX || arg < INT_MIN)
 	{
 		std::cout << "Integer overflow" << std::endl;
@@ -56,20 +62,8 @@ bool isInt(const char *arg)
 	return true;
 }
 
-bool isChar(const char *arg)
-{
-	for (size_t i = 0; i < strlen(arg); i++)
-	{
-		// printable har character
-		if (arg[i] < 32 || arg[i] >= 127)
-			return false;
-	}
-	std::cout << "This is a char" << std::endl;
-	return true;
-}
-
 // using IEEE 754 single-precision (4 bytes) - precision 7 significant digits
-bool isFloat(const char *arg)
+bool isFloat(std::string input)
 {
 	std::string str = arg;
 	std::size_t found = str.find(".");
@@ -83,14 +77,44 @@ bool isFloat(const char *arg)
 	return true;
 }
 
+bool isDouble(std::string input)
+{}
+
+bool isPseudo(std::string input)
+{
+	const char *pseudo[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+	for (int i = 0; i < 6; i++)
+	{
+		if (input == pseudo[i])
+			return true;
+	}
+	return false;
+}
+
+type detectType(std::string input)
+{
+	if (input.empty())
+		return INVALID;
+	else if (isPseudo(input))
+		return PSEUDO;
+	else if (isChar(input))
+		return CHAR;
+	else if (isInt(input))
+		return INT;
+	else if (isFloat(input))
+		return FLOAT;
+	else if (isDouble(input))
+		return DOUBLE;
+	return INVALID;
+}
+
 void ScalarConverter::convert(const char *arg)
 {
-	int type;
+	std::string input(arg);
 	// first detect the type - whether is int, char, float, double
-	if (isInt(arg))
-		type = 0;
-	// check overflow - display error message
-	// convert to the type
+	// check overflow/invalid - display error message
+	type inputType = detectType(input);
+	// convert to actual type
+	// - use switch, if char, printchar()
 	// convert to three other data type
-	// std::cout  << "char: " << convertToInt(arg) << std::endl;
 }
