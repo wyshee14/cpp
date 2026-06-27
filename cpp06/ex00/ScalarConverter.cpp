@@ -43,36 +43,44 @@ bool isChar(std::string input)
 
 bool isInt(std::string input)
 {
-	// handle int min and max - convert string to number first
-	if (arg > INT_MAX || arg < INT_MIN)
+	for (int i = 0; i < input.size(); i++)
 	{
-		std::cout << "Integer overflow" << std::endl;
-		return false;
-	}
-	for (size_t i = 0; i < strlen(arg); i++)
-	{
-		if (arg[0] == '-')
+		if (input[0] == '-')
 			i++;
-		if (!std::isdigit(arg[i]))
+		if (!std::isdigit(input[i]))
 			return false;
-		int num = std::atoi(arg);
-		std::cout << "num: " << num << std::endl;
+		// int num = std::atoi(arg);
+		// std::cout << "num: " << num << std::endl;
 	}
+	// handle int min and max - convert string to number first
+	// if (arg > INT_MAX || arg < INT_MIN)
+	// {
+	// 	std::cout << "Integer overflow" << std::endl;
+	// 	return false;
+	// }
 	std::cout << "This is a int" << std::endl;
 	return true;
 }
 
 // using IEEE 754 single-precision (4 bytes) - precision 7 significant digits
+// check got '.'
+// check the last character is 'f'
+// check all digits
 bool isFloat(std::string input)
 {
-	std::string str = arg;
-	std::size_t found = str.find(".");
+	size_t found = input.find(".");
 	if (found != std::string::npos)
 		std::cout << ".is found at : " << found << std::endl;
-	if (str.size() > 8)
+	size_t precision = input.size() - found;
+	if (precision > 8)
 		return false;
-	if (arg[str.size() - 1] != 'f')
+	if (input.back() != 'f')
 		return false;
+	for (int i = 0; i < input.size(); i++)
+	{
+		if (!std::isdigit(input[i]) || input[i] == '.' || input[i] == 'f')
+			return false;
+	}
 	std::cout << "This is a float" << std::endl;
 	return true;
 }
