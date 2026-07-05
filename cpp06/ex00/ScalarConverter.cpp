@@ -38,14 +38,15 @@ bool isChar(std::string input)
 	// printable char character and not a digit
 	if (!isprint(input[0]) || isdigit(input[0]))
 		return false;
+	std::cout << "This is a char" << std::endl;
 	return true;
 }
 
 bool isInt(std::string input)
 {
-	for (int i = 0; i < input.size(); i++)
+	for (size_t i = 0; i < input.size(); i++)
 	{
-		if (input[0] == '-')
+		if (i == 0 && (input[i] == '-' || input[i] == '+'))
 			i++;
 		if (!std::isdigit(input[i]))
 			return false;
@@ -62,31 +63,80 @@ bool isInt(std::string input)
 	return true;
 }
 
+static bool checkHasDigits(std::string input)
+{
+	bool hasDigits = false;
+	for (size_t i = 0; i < input.size() - 2; i++)
+	{
+		if (std::isdigit(input[i]))
+		{
+			hasDigits = true;
+			continue;
+		}
+		if (i == 0 && (input[i] == '+' || input[i] == '-'))
+			continue;
+		if (input[i] == '.')
+			continue;
+		return false;
+	}
+	if (!hasDigits)
+		return false;
+	return true;
+}
+
+// float - 32 bit number, 7 decimal precision
 // using IEEE 754 single-precision (4 bytes) - precision 7 significant digits
 // check got '.'
 // check the last character is 'f'
-// check all digits
+// check all is digits , except for '.' and 'f'
 bool isFloat(std::string input)
 {
+	// a float must consists of digits, '.' , digits and 'f'
+	if (input.size() < 4)
+		return false;
+	// check the last character is 'f'
+	if (input[input.size() - 1] != 'f')
+		return false;
+	// check dot only exist only one time in the string
 	size_t found = input.find(".");
-	if (found != std::string::npos)
-		std::cout << ".is found at : " << found << std::endl;
-	size_t precision = input.size() - found;
-	if (precision > 8)
+	// std::cout << ".is found at : " << found << std::endl;
+	// if not found, return false
+	if (found == std::string::npos)
 		return false;
-	if (input.back() != 'f')
+	// check if second dot exist
+	if (input.find(".", found + 1) != std::string::npos)
 		return false;
-	for (int i = 0; i < input.size(); i++)
-	{
-		if (!std::isdigit(input[i]) || input[i] == '.' || input[i] == 'f')
-			return false;
-	}
+	// check the precision for 7 digits
+	size_t precision = input.size() - found - 2;
+	// std::cout << "Precision : " << precision << std::endl;
+	if (precision > 7)
+		return false;
+	// check digits 
+	if (!checkHasDigits(input))
+		return false;
 	std::cout << "This is a float" << std::endl;
 	return true;
 }
 
+// double - 64 bit number, 15 decimal precision
 bool isDouble(std::string input)
-{}
+{
+	if (input.size() < 3)
+		return false;
+	size_t found = input.find(".");
+	if (found == std::string::npos)
+		return false;
+	if (input.find(".", found + 1) != std::string::npos)
+		return false;
+	size_t precision = input.size() - found - 2;
+	// std::cout << "Precision : " << precision << std::endl;
+	if (precision > 16)
+		return false;
+	if (!checkHasDigits(input))
+		return false;
+	std::cout << "This is a double" << std::endl;
+	return true;
+}
 
 bool isPseudo(std::string input)
 {
@@ -122,6 +172,7 @@ void ScalarConverter::convert(const char *arg)
 	// first detect the type - whether is int, char, float, double
 	// check overflow/invalid - display error message
 	type inputType = detectType(input);
+	std::cout << "input type:" << inputType << std::endl;
 	// convert to actual type
 	// - use switch, if char, printchar()
 	// convert to three other data type
