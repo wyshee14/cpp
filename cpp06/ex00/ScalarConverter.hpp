@@ -6,7 +6,7 @@
 /*   By: wshee <wshee@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 17:19:50 by wshee             #+#    #+#             */
-/*   Updated: 2026/05/22 00:13:48 by wshee            ###   ########.fr       */
+/*   Updated: 2026/07/05 22:09:12 by wshee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 # include <stdlib.h>
 # include <cctype>		// Handle individual character (isdigit(), isprint())
 # include <cstring>
-# include <climits>		// Handle int min and max
+# include <climits>		// Handle INT_MIN and INT_MAX
 # include <stdlib.h>	// atoi library
+# include <limits>		//Handle numeric limits
+#include <iomanip>
 
 class ScalarConverter {
 	private:

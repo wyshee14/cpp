@@ -42,6 +42,7 @@ bool isChar(std::string input)
 	return true;
 }
 
+// int - 32 bit 
 bool isInt(std::string input)
 {
 	for (size_t i = 0; i < input.size(); i++)
@@ -63,11 +64,13 @@ bool isInt(std::string input)
 	return true;
 }
 
-static bool checkHasDigits(std::string input)
+static bool checkHasDigits(std::string input, char last)
 {
 	bool hasDigits = false;
-	for (size_t i = 0; i < input.size() - 2; i++)
+	for (size_t i = 0; i < input.size(); i++)
 	{
+		if ((i == input.size() - 1) && last == 'f')
+			continue ;
 		if (std::isdigit(input[i]))
 		{
 			hasDigits = true;
@@ -107,12 +110,12 @@ bool isFloat(std::string input)
 	if (input.find(".", found + 1) != std::string::npos)
 		return false;
 	// check the precision for 7 digits
-	size_t precision = input.size() - found - 2;
+	// size_t precision = input.size() - found - 2;
 	// std::cout << "Precision : " << precision << std::endl;
-	if (precision > 7)
-		return false;
+	// if (precision > 7)
+	// 	return false;
 	// check digits 
-	if (!checkHasDigits(input))
+	if (!checkHasDigits(input, 'f'))
 		return false;
 	std::cout << "This is a float" << std::endl;
 	return true;
@@ -132,7 +135,7 @@ bool isDouble(std::string input)
 	// std::cout << "Precision : " << precision << std::endl;
 	if (precision > 16)
 		return false;
-	if (!checkHasDigits(input))
+	if (!checkHasDigits(input, 'd'))
 		return false;
 	std::cout << "This is a double" << std::endl;
 	return true;
@@ -166,14 +169,117 @@ type detectType(std::string input)
 	return INVALID;
 }
 
+void convertChar(std::string input)
+{
+	char c = input[0];
+	if (std::isprint(c))
+	{
+		std::cout << "char: " << c << std::endl;
+		std::cout << "int: " << static_cast<int>(c) << std::endl;
+		std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
+	}
+	else
+		std::cout << "Non displayable" << std::endl;
+}
+
+void convertInt(std::string input)
+{
+	long result = 0;
+	for (size_t i = 0; i < input.size(); i++)
+	{
+		if (i == 0 && (input[i] == '+' || input[i] == '-'))
+			continue ;
+		result = result * 10 + (input[i] - '0');
+	}
+	if (input[0] == '-')
+		result *= -1;
+	std::cout << "result: " << result << std::endl;
+	
+	// print
+	std::cout << "char: ";
+	// extra handling for isprint which accepts int parameter
+	if (result < 0 || result > 127)
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		if (std::isprint(result))
+			std::cout << static_cast<char>(result) << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;  
+	}
+	std::cout << "int: ";
+	// handle int min and max - convert string to number first
+	if (result > INT_MAX || result < INT_MIN)
+		std::cout << "impossible" << std::endl;
+	else 
+		std::cout << result << std::endl;
+	std::cout << "float: " << static_cast<float>(result) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(result) << ".0" << std::endl;
+}
+
+void convertFloat(std::string input)
+{
+	float f = std::atof(input.c_str());
+	//print
+	std::cout << "char: ";
+	if (f < 0 || f > 127)
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		if (std::isprint(f))
+			std::cout << static_cast<char>(f) << std::endl;
+		else
+			std:: cout << "Non displayable" << std::endl;
+	}
+	std::cout << "int: ";
+	if (f > INT_MAX || f < INT_MIN)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(f) << std::endl;
+	std::cout << "float: ";
+	if (f > std::numeric_limits<float>::max() || f < -std::numeric_limits<float>::max())
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		// std::cout << std::fixed << std::setprecision(7);
+		std::cout << f << "f" << std::endl;
+	}
+	std::cout << "double: " << static_cast<double>(f) << std::endl;
+}
+
+void convertDouble(std::string input)
+{
+	
+}
+
 void ScalarConverter::convert(const char *arg)
 {
 	std::string input(arg);
 	// first detect the type - whether is int, char, float, double
 	// check overflow/invalid - display error message
 	type inputType = detectType(input);
-	std::cout << "input type:" << inputType << std::endl;
+	std::cout << "print==" << inputType << std::endl;
 	// convert to actual type
 	// - use switch, if char, printchar()
+	switch (inputType)
+	{
+		case 0:
+			convertChar(input);
+			break ;
+		case 1:
+			convertInt(input);
+			break ;
+		case 2:
+			convertFloat(input);
+			break ;
+		case 3:
+			convertDouble(input);
+			break ;
+		case 4: 
+			break ;
+		case 5:
+			break ;
+	}
 	// convert to three other data type
 }
