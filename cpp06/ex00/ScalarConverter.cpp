@@ -38,11 +38,11 @@ bool isChar(std::string input)
 	// printable char character and not a digit
 	if (!isprint(input[0]) || isdigit(input[0]))
 		return false;
-	std::cout << "This is a char" << std::endl;
+	// std::cout << "This is a char" << std::endl;
 	return true;
 }
 
-// int - 32 bit 
+// int - 32 bit
 bool isInt(std::string input)
 {
 	for (size_t i = 0; i < input.size(); i++)
@@ -60,7 +60,7 @@ bool isInt(std::string input)
 	// 	std::cout << "Integer overflow" << std::endl;
 	// 	return false;
 	// }
-	std::cout << "This is a int" << std::endl;
+	// std::cout << "This is a int" << std::endl;
 	return true;
 }
 
@@ -114,10 +114,10 @@ bool isFloat(std::string input)
 	// std::cout << "Precision : " << precision << std::endl;
 	// if (precision > 7)
 	// 	return false;
-	// check digits 
+	// check digits
 	if (!checkHasDigits(input, 'f'))
 		return false;
-	std::cout << "This is a float" << std::endl;
+	// std::cout << "This is a float" << std::endl;
 	return true;
 }
 
@@ -137,7 +137,7 @@ bool isDouble(std::string input)
 		return false;
 	if (!checkHasDigits(input, 'd'))
 		return false;
-	std::cout << "This is a double" << std::endl;
+	// std::cout << "This is a double" << std::endl;
 	return true;
 }
 
@@ -195,7 +195,7 @@ void convertInt(std::string input)
 	if (input[0] == '-')
 		result *= -1;
 	std::cout << "result: " << result << std::endl;
-	
+
 	// print
 	std::cout << "char: ";
 	// extra handling for isprint which accepts int parameter
@@ -206,16 +206,24 @@ void convertInt(std::string input)
 		if (std::isprint(result))
 			std::cout << static_cast<char>(result) << std::endl;
 		else
-			std::cout << "Non displayable" << std::endl;  
+			std::cout << "Non displayable" << std::endl;
 	}
 	std::cout << "int: ";
 	// handle int min and max - convert string to number first
 	if (result > INT_MAX || result < INT_MIN)
 		std::cout << "impossible" << std::endl;
-	else 
+	else
 		std::cout << result << std::endl;
-	std::cout << "float: " << static_cast<float>(result) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(result) << ".0" << std::endl;
+	std::cout << "float: ";
+	if (result > INT_MAX || result < INT_MIN)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<float>(result) << ".0f" << std::endl;
+	std::cout << "double: ";
+	if (result > INT_MAX || result < INT_MIN)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << "double: " << static_cast<double>(result) << ".0" << std::endl;
 }
 
 void convertFloat(std::string input)
@@ -233,7 +241,7 @@ void convertFloat(std::string input)
 			std:: cout << "Non displayable" << std::endl;
 	}
 	std::cout << "int: ";
-	if (f > INT_MAX || f < INT_MIN)
+	if (static_cast<int>(f) > INT_MAX || static_cast<int>(f) < INT_MIN)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(f) << std::endl;
@@ -242,15 +250,94 @@ void convertFloat(std::string input)
 		std::cout << "impossible" << std::endl;
 	else
 	{
-		// std::cout << std::fixed << std::setprecision(7);
+		std::cout << std::fixed << std::setprecision(1);
 		std::cout << f << "f" << std::endl;
 	}
-	std::cout << "double: " << static_cast<double>(f) << std::endl;
+	std::cout << "float: ";
+	if (f > std::numeric_limits<float>::max() || f < -std::numeric_limits<float>::max())
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		std::cout << "double: ";
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << static_cast<double>(f) << std::endl;
+	}
 }
 
 void convertDouble(std::string input)
 {
-	
+	std::stringstream ss(input);
+	// ss << input;
+	double d1;
+	ss >> d1;
+	std::cout << "char: ";
+	if (d1 < 0 || d1 > 127)
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		if (std::isprint(d1))
+			std::cout << static_cast<char>(d1) << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
+	}
+	std::cout << "int: ";
+	if (d1 > INT_MAX || d1 < INT_MIN)
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(d1) << std::endl;
+	std::cout << "float: ";
+	// min is the smallest positive normalized value, is not the lowest value
+	if (d1 > std::numeric_limits<float>::max() || d1 < -std::numeric_limits<float>::max())
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << static_cast<float>(d1) << "f" << std::endl;
+	}
+	std::cout << "double: ";
+	if (d1 > std::numeric_limits<double>::max() || d1 < -std::numeric_limits<double>::max())
+		std::cout << "impossible" << std::endl;
+	else
+	{
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << d1 << std::endl;
+	}
+}
+
+void convertIsPseudo(std::string input)
+{
+	const char *pseudo[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	for (int i = 0; i < 6; i++)
+	{
+		if (input == pseudo[i])
+		{
+			if (i == 0 || i == 3)
+			{
+				std::cout << "float: " << pseudo[0] << std::endl;
+				std::cout << "double: " << pseudo[3] << std::endl;
+			}
+			else if (i == 1 || i == 4)
+			{
+				std::cout << "float: " << pseudo[1] << std::endl;
+				std::cout << "double: " << pseudo[4] << std::endl;
+			}
+			else if (i == 2 || i == 5)
+			{
+				std::cout << "float: " << pseudo[2] << std::endl;
+				std::cout << "double: " << pseudo[5] << std::endl;
+			}
+		}
+	}
+}
+
+void convertInvalid()
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
 }
 
 void ScalarConverter::convert(const char *arg)
@@ -259,7 +346,7 @@ void ScalarConverter::convert(const char *arg)
 	// first detect the type - whether is int, char, float, double
 	// check overflow/invalid - display error message
 	type inputType = detectType(input);
-	std::cout << "print==" << inputType << std::endl;
+	// std::cout << "print==" << inputType << std::endl;
 	// convert to actual type
 	// - use switch, if char, printchar()
 	switch (inputType)
@@ -276,10 +363,11 @@ void ScalarConverter::convert(const char *arg)
 		case 3:
 			convertDouble(input);
 			break ;
-		case 4: 
+		case 4:
+			convertIsPseudo(input);
 			break ;
 		case 5:
+			convertInvalid();
 			break ;
 	}
-	// convert to three other data type
 }
