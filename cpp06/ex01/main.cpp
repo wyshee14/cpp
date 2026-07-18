@@ -10,8 +10,8 @@ int main()
 	std::cout << "Ptr Address: " << address << std::endl;
 	Data* restored = Serialization::deserialize(address);
 	std::cout << "Same object? " << (restored == &obj) << std::endl;
-	std::cout << "Name: " << obj.getName() << ", " << restored->getName() << std::endl;
-	std::cout << "Age: " << obj.getAge() << ", " << restored->getAge() << std::endl;
+	std::cout << "Name: " << obj.getName() << " = " << restored->getName() << std::endl;
+	std::cout << "Age: " << obj.getAge() << " = " << restored->getAge() << std::endl;
 
 	// int data = 42;
 	// int *ptr = &data;
@@ -20,5 +20,6 @@ int main()
 	// std::cout << "Address: " << address << std::endl;
 	// int* deserialize_ptr = reinterpret_cast<int*>(address);
 	// std::cout << "Original value: " << *deserialize_ptr << std::endl;
+
 	return 0;
 }
