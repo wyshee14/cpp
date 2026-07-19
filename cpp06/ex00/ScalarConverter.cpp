@@ -335,22 +335,22 @@ void ScalarConverter::convert(const char *arg)
 	// check overflow/invalid - display error message
 	switch (inputType)
 	{
-		case 0:
+		case CHAR:
 			convertChar(input);
 			break ;
-		case 1:
+		case INT:
 			convertInt(input);
 			break ;
-		case 2:
+		case FLOAT:
 			convertFloat(input);
 			break ;
-		case 3:
+		case DOUBLE:
 			convertDouble(input);
 			break ;
-		case 4:
+		case PSEUDO:
 			convertIsPseudo(input);
 			break ;
-		case 5:
+		case INVALID:
 			convertInvalid();
 			break ;
 	}
