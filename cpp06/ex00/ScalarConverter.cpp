@@ -51,15 +51,7 @@ bool isInt(std::string input)
 			i++;
 		if (!std::isdigit(input[i]))
 			return false;
-		// int num = std::atoi(arg);
-		// std::cout << "num: " << num << std::endl;
 	}
-	// handle int min and max - convert string to number first
-	// if (arg > INT_MAX || arg < INT_MIN)
-	// {
-	// 	std::cout << "Integer overflow" << std::endl;
-	// 	return false;
-	// }
 	// std::cout << "This is a int" << std::endl;
 	return true;
 }
@@ -102,7 +94,6 @@ bool isFloat(std::string input)
 		return false;
 	// check dot only exist only one time in the string
 	size_t found = input.find(".");
-	// std::cout << ".is found at : " << found << std::endl;
 	// if not found, return false
 	if (found == std::string::npos)
 		return false;
@@ -110,11 +101,6 @@ bool isFloat(std::string input)
 	if (input.find(".", found + 1) != std::string::npos)
 		return false;
 	// check the precision for 7 digits
-	// size_t precision = input.size() - found - 2;
-	// std::cout << "Precision : " << precision << std::endl;
-	// if (precision > 7)
-	// 	return false;
-	// check digits
 	if (!checkHasDigits(input, 'f'))
 		return false;
 	// std::cout << "This is a float" << std::endl;
@@ -132,7 +118,6 @@ bool isDouble(std::string input)
 	if (input.find(".", found + 1) != std::string::npos)
 		return false;
 	size_t precision = input.size() - found - 2;
-	// std::cout << "Precision : " << precision << std::endl;
 	if (precision > 16)
 		return false;
 	if (!checkHasDigits(input, 'd'))
@@ -194,7 +179,6 @@ void convertInt(std::string input)
 	}
 	if (input[0] == '-')
 		result *= -1;
-	std::cout << "result: " << result << std::endl;
 
 	// print
 	std::cout << "char: ";
@@ -223,7 +207,7 @@ void convertInt(std::string input)
 	if (result > INT_MAX || result < INT_MIN)
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << "double: " << static_cast<double>(result) << ".0" << std::endl;
+		std::cout << static_cast<double>(result) << ".0" << std::endl;
 }
 
 void convertFloat(std::string input)
@@ -241,10 +225,14 @@ void convertFloat(std::string input)
 			std:: cout << "Non displayable" << std::endl;
 	}
 	std::cout << "int: ";
-	if (static_cast<int>(f) > INT_MAX || static_cast<int>(f) < INT_MIN)
+	// int_mx is automatically convert into double
+	double d = static_cast<double>(f);
+	if (d > INT_MAX || f < INT_MIN)
+	{
 		std::cout << "impossible" << std::endl;
+	}
 	else
-		std::cout << static_cast<int>(f) << std::endl;
+		std::cout << static_cast<int>(d) << std::endl;
 	std::cout << "float: ";
 	if (f > std::numeric_limits<float>::max() || f < -std::numeric_limits<float>::max())
 		std::cout << "impossible" << std::endl;
@@ -253,12 +241,11 @@ void convertFloat(std::string input)
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << f << "f" << std::endl;
 	}
-	std::cout << "float: ";
+	std::cout << "double: ";
 	if (f > std::numeric_limits<float>::max() || f < -std::numeric_limits<float>::max())
 		std::cout << "impossible" << std::endl;
 	else
 	{
-		std::cout << "double: ";
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << static_cast<double>(f) << std::endl;
 	}
@@ -267,7 +254,6 @@ void convertFloat(std::string input)
 void convertDouble(std::string input)
 {
 	std::stringstream ss(input);
-	// ss << input;
 	double d1;
 	ss >> d1;
 	std::cout << "char: ";
@@ -344,11 +330,9 @@ void ScalarConverter::convert(const char *arg)
 {
 	std::string input(arg);
 	// first detect the type - whether is int, char, float, double
-	// check overflow/invalid - display error message
 	type inputType = detectType(input);
-	// std::cout << "print==" << inputType << std::endl;
 	// convert to actual type
-	// - use switch, if char, printchar()
+	// check overflow/invalid - display error message
 	switch (inputType)
 	{
 		case 0:

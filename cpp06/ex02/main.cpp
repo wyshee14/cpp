@@ -34,11 +34,13 @@ void identify(Base *p)
 		std::cout << "Failed to cast" << std::endl;
 }
 
-// Throw std::bad_cast if reference cast fails
+// Throw std::bad_cast if reference cast fails - is only for std::typeinfo library
+// dynamic_cast cast the object p to type &A
 void identify(Base &p)
 {
 	try
 	{
+		// check if p is A
 		(void)dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 		return ;
