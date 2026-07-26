@@ -15,12 +15,12 @@ std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
   return o;
 }
 
-template< typename T >
-void print( T& x )
-{
-  std::cout << x << std::endl;
-  return;
-}
+// template< typename T >
+// void print( T& x )
+// {
+//   std::cout << x << std::endl;
+//   return;
+// }
 
 int main() {
   int tab[] = { 0, 1, 2, 3, 4 };

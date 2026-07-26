@@ -37,13 +37,19 @@ class Array
 			}
 			return (*this);
 		};
+		// Destructor
 		~Array() {
 			if (this->_arr)
 				delete[] _arr;
 			};
+
+		// Getter
 		T &getArray() const { return _arr; };
 		unsigned int size() const { return _n; };
-		T &operator[](unsigned int index)
+
+		// Overloading non-const operator
+		// Return a reference as array element
+		T &operator[](unsigned int index) const
 		{
 			if (index >= _n)
 			{

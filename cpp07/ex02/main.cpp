@@ -27,6 +27,14 @@ int main(int, char**)
             return 1;
         }
     }
+	try
+    {
+        numbers[100] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     try
     {
         numbers[-2] = 0;
@@ -47,8 +55,8 @@ int main(int, char**)
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
-		std::cout << "numbers[i]: " << numbers[i] << std::endl;
-		std::cout << "mirror[i]: " << mirror[i] << std::endl;
+		// std::cout << "numbers[i]: " << numbers[i] << std::endl;
+		// std::cout << "mirror[i]: " << mirror[i] << std::endl;
     }
     delete [] mirror;//
     return 0;
