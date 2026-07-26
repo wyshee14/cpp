@@ -57,6 +57,18 @@ class Array
 			}
 			return (_arr[index]);
 		};
+
+		// Overloading const operator (read-only) - use for const instance
+		const T &operator[](unsigned int index) const
+		{
+			if (index >= _n)
+			{
+				throw OutOfBoundsException();
+			}
+			return (_arr[index]);
+		};
+
+		// Customie exception to handle out of bound
 		class OutOfBoundsException : public std::exception
 		{
 			public:
