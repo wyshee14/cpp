@@ -4,9 +4,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 
-#HEADER = Serialization.hpp Data.hpp
-
-SRC = main.cpp
+SRC = ex00.cpp #main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

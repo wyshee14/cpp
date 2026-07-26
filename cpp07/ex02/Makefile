@@ -2,9 +2,7 @@ NAME = template
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
-
-#HEADER = Serialization.hpp Data.hpp
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
 SRC = main.cpp
 

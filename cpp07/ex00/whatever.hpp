@@ -1,6 +1,8 @@
 #ifndef WHATEVER_HPP
 #define WHATEVER_HPP
 
+# include <iostream>
+
 // template is a generic function that allow multiple data types to work
 template <typename T>
 T max(T x, T y)
